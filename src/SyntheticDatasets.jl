@@ -10,10 +10,23 @@ function __init__()
     copy!(datasets, pyimport("sklearn.datasets"))
 end
 
-function generate_moons(;n_samples = 100, 
+"""
+    generate_moons(;    n_samples::Union{Tuple{Int, Int}, Int} = 100, 
                         shuffle = true, 
                         noise = nothing, 
                         random_state = nothing)::DataFrame
+Make two interleaving half circles. Sklearn interface to make_moons. 
+# Arguments
+- `n_samples::Union{Tuple{Int, Int}, Int} = 100`: If int, the total number of points generated. If two-element tuple, number of points in each of two moons.
+- `shuffle::Bool = true`: Whether to shuffle the samples.
+- `noise::Union{Nothing, Float64} = nothing`: Standard deviation of Gaussian noise added to the data.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset shuffling and noise.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_moons.html)
+"""
+function generate_moons(;n_samples::Union{Tuple{Int, Int}, Int} = 100, 
+                        shuffle::Bool = true, 
+                        noise::Union{Nothing, Float64} = nothing, 
+                        random_state::Union{Int, Nothing} = nothing)::DataFrame
 
     data = datasets.make_moons( n_samples=n_samples, 
                                 shuffle = shuffle, 
@@ -36,14 +49,32 @@ function generate_moons(;n_samples = 100,
     return df[index, :]
 end
 
-function generate_blobs(;n_samples = 100, 
-                        n_features = 2,
+"""
+    generate_blobs(;    n_samples::Union{Int, Array{Int, 1}} = 100, 
+                        n_features::Int = 2,
                         centers = nothing,
                         cluster_std = 1.0,
                         center_box = (-10.0, 10.0),
-                        shuffle = true, 
-                        random_state = nothing,
-                        return_centers = false)::DataFrame
+                        shuffle::Bool = true, 
+                        random_state::Union{Int, Nothing} = nothing)::DataFrame
+Make two interleaving half circles. Sklearn interface to make_moons. 
+# Arguments
+- `n_samples = 100`: If int, it is the total number of points equally divided among clusters. If array-like, each element of the sequence indicates the number of samples per cluster. 
+- `n_features = 2`: The number of features for each sample.
+- `centers = nothing`: 
+- `cluster_std = 1.0`: 
+- `center_box = (-10.0, 10.0)`: 
+- `shuffle::Bool = true`: Shuffle the samples.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset shuffling and noise.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html)
+"""
+function generate_blobs(;n_samples::Union{Int, Array{Int, 1}} = 100, 
+                        n_features::Int = 2,
+                        centers = nothing,
+                        cluster_std = 1.0,
+                        center_box = (-10.0, 10.0),
+                        shuffle::Bool = true, 
+                        random_state::Union{Int, Nothing} = nothing)::DataFrame
 
     data = datasets.make_blobs( n_samples = n_samples, 
                                 n_features = n_features, 
@@ -52,7 +83,7 @@ function generate_blobs(;n_samples = 100,
                                 center_box = center_box, 
                                 shuffle = shuffle, 
                                 random_state = random_state, 
-                                return_centers = return_centers)
+                                return_centers = false)
 
     df = DataFrame(X = Float64[], Y = Float64[], C = Int[])
 
