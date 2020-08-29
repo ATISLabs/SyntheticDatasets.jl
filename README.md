@@ -1,7 +1,7 @@
 # SyntheticDatasets.jl
 [![][travis-img]][travis-url] [![][codecov-img]][codecov-url] [![][coverage-img]][coverage-url]
 
-The SyntheticDatasets.jl package is a lib with functions for generating synthetic artificial datasets.
+The SyntheticDatasets.jl package is a library with functions for generating synthetic artificial datasets.
 
 ## Installation
 
@@ -25,10 +25,10 @@ The package has an interface for the dataset generator of the [ScikitLearn](http
 ### ScikitLearn
 List of package datasets:
 
-Dataset         | Title
-----------------|------------------------------------------------------------------------
-make_blobs      | Generate isotropic Gaussian blobs for clustering.
-make_moons      | Make two interleaving half circles
+Dataset         | Title                                                                  | Reference
+----------------|------------------------------------------------------------------------|
+make_blobs      | Generate isotropic Gaussian blobs for clustering.                      | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_moons.html)
+make_moons      | Make two interleaving half circles                                     | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html)
 
 
 [travis-img]: https://travis-ci.com/ATISLabs/SyntheticDatasets.jl.svg?branch=master
