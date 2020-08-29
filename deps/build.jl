@@ -3,12 +3,12 @@ using Conda
 
 function installpypackage()
 	try
-		pyimport_conda("sklearn")
+		pyimport_conda("scikit-learn")
 	catch
 		try
-			Conda.add("sklearn")
+			Conda.add("scikit-learn")
 		catch
-			println("sklearn failed to install")
+			println("scikit-learn failed to install")
 		end
 	end
 end
