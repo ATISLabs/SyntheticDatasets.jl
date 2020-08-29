@@ -2,12 +2,13 @@
 language: julia
 os:
   - linux
-env:
-  global:
-  - PYTHON=Conda
 julia:
   - 1
   - nightly
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get -qq update              ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -y python3-pip   ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then pip3 install --user sklearn           ; fi
 notifications:
   email: false
 
