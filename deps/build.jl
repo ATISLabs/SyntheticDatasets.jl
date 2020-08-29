@@ -3,7 +3,7 @@ using Conda
 
 function installpypackage()
 	try
-		pyimport_conda("scikit-learn")
+		pyimport_conda("sklearn", "scikit-learn")
 	catch
 		try
 			Conda.add("scikit-learn")
