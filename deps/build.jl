@@ -3,7 +3,7 @@ using PyCall
 println("Running build.jl for the SyntheticDatasets package.")
 
 # Change that to whatever packages you need.
-const PACKAGES = ["sklearn"]
+PACKAGES = ["sklearn"]
 
 # Use eventual proxy info
 proxy_arg=String[]
