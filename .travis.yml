@@ -2,14 +2,18 @@
 language: julia
 os:
   - linux
+addons:
+  apt:
+    packages:
+      - python3-numpy
+      - python3-scipy
 env:
-  global:
   - PYTHON=Conda
 julia:
   - 1
   - nightly
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then conda install -q -y scikit-learn
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then conda install -y scikit-learn
 notifications:
   email: false
 
