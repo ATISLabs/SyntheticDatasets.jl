@@ -8,6 +8,8 @@ env:
 julia:
   - 1
   - nightly
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then conda install -q -y scikit-learn
 notifications:
   email: false
 
