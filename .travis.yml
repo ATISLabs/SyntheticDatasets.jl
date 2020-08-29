@@ -2,9 +2,9 @@
 language: julia
 os:
   - linux
-  env:
-    global:
-    - PYTHON=Conda
+env:
+  global:
+  - PYTHON=Conda
 julia:
   - 1
   - nightly
