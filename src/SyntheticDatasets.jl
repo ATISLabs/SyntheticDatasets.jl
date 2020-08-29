@@ -28,25 +28,12 @@ function generate_moons(;n_samples::Union{Tuple{Int, Int}, Int} = 100,
                         noise::Union{Nothing, Float64} = nothing, 
                         random_state::Union{Int, Nothing} = nothing)::DataFrame
 
-    data = datasets.make_moons( n_samples=n_samples, 
-                                shuffle = shuffle, 
-                                noise = noise, 
-                                random_state = random_state)
+    (features, labels) = datasets.make_moons(   n_samples=n_samples, 
+                                                shuffle = shuffle, 
+                                                noise = noise, 
+                                                random_state = random_state)
 
-    df = DataFrame(X = Float64[], Y = Float64[], C = Int[])
-
-    for i in findall(r->r==0, data[2])
-        push!(df, (data[1][i, 1], data[1][i, 2], 1))
-    end
-
-    for i in findall(r->r==1, data[2])
-        push!(df, (data[1][i, 1], data[1][i, 2], 2))
-    end
-
-    index = collect(1:size(df)[1])
-    shuffle!(index)
-
-    return df[index, :]
+    return convert(features, labels)
 end
 
 """
@@ -76,29 +63,34 @@ function generate_blobs(;n_samples::Union{Int, Array{Int, 1}} = 100,
                         shuffle::Bool = true, 
                         random_state::Union{Int, Nothing} = nothing)::DataFrame
 
-    data = datasets.make_blobs( n_samples = n_samples, 
-                                n_features = n_features, 
-                                centers = centers, 
-                                cluster_std = cluster_std, 
-                                center_box = center_box, 
-                                shuffle = shuffle, 
-                                random_state = random_state, 
-                                return_centers = false)
+    (features, labels) = datasets.make_blobs(   n_samples = n_samples, 
+                                                n_features = n_features, 
+                                                centers = centers, 
+                                                cluster_std = cluster_std, 
+                                                center_box = center_box, 
+                                                shuffle = shuffle, 
+                                                random_state = random_state, 
+                                                return_centers = false)
 
-    df = DataFrame(X = Float64[], Y = Float64[], C = Int[])
+    return convert(features, labels)
+end
 
-    for i in findall(r->r==0, data[2])
-    push!(df, (data[1][i, 1], data[1][i, 2], 1))
+function convert(features::Array{T, 2}, labels::Array{Int, 1})::DataFrame where T <: Number
+    df = DataFrame()
+
+    for i = 1:size(features)[2]
+        df[!, Symbol("feature_$(i)")] = eltype(features)[]
+    end
+    
+    df[!, :label] = eltype(labels)[]
+    
+    for label in unique(labels)
+        for i in findall(r->r == label, labels)
+            push!(df, (features[i, :]... , label))
+        end
     end
 
-    for i in findall(r->r==1, data[2])
-    push!(df, (data[1][i, 1], data[1][i, 2], 2))
-    end
-
-    index = collect(1:size(df)[1])
-    shuffle!(index)
-
-    return df[index, :]
+    return df
 end
 
 end # module
