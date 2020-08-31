@@ -39,27 +39,27 @@ end
 """
     generate_blobs(;    n_samples::Union{Int, Array{Int, 1}} = 100, 
                         n_features::Int = 2,
-                        centers = nothing,
+                        centers::Union{Int, Union{Nothing, Array{Float64, 2}}} = nothing,
                         cluster_std = 1.0,
-                        center_box = (-10.0, 10.0),
+                        center_box::Tuple{Float64, Float64} = (-10.0, 10.0),
                         shuffle::Bool = true, 
                         random_state::Union{Int, Nothing} = nothing)::DataFrame
 Make two interleaving half circles. Sklearn interface to make_moons. 
 # Arguments
 - `n_samples = 100`: If int, it is the total number of points equally divided among clusters. If array-like, each element of the sequence indicates the number of samples per cluster. 
 - `n_features = 2`: The number of features for each sample.
-- `centers = nothing`: 
+- `centers::Union{Int, Union{Nothing, Array{Float64, 2}}} = nothing`: The number of centers to generate, or the fixed center locations. If n_samples is an int and centers is None, 3 centers are generated. If n_samples is array-like, centers must be either None or an array of length equal to the length of n_samples.
 - `cluster_std = 1.0`: 
-- `center_box = (-10.0, 10.0)`: 
+- `center_box::Tuple{Float64, Float64} = (-10.0, 10.0)`: 
 - `shuffle::Bool = true`: Shuffle the samples.
 - `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset shuffling and noise.
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html)
 """
 function generate_blobs(;n_samples::Union{Int, Array{Int, 1}} = 100, 
                         n_features::Int = 2,
-                        centers = nothing,
+                        centers::Union{Int, Union{Nothing, Array{Float64, 2}}} = nothing,
                         cluster_std = 1.0,
-                        center_box = (-10.0, 10.0),
+                        center_box::Tuple{Float64, Float64} = (-10.0, 10.0),
                         shuffle::Bool = true, 
                         random_state::Union{Int, Nothing} = nothing)::DataFrame
 
