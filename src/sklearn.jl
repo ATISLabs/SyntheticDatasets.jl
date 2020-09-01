@@ -85,6 +85,22 @@ function generate_s_curve(; n_samples::Int = 100,
     return convert(features, labels)
 end
 
+"""
+    function generate_circles(; n_samples::Int = 100,
+                                shuffle::Bool = true,
+                                noise::Float64 = 0.0, 
+                                random_state::Union{Int, Nothing} = nothing,
+                                factor::Float64 = 0.8)::DataFrame
+Make a large circle containing a smaller circle in 2d. Sklearn interface to make_circles.
+# Arguments
+- `n_samples::Union{Int, Tuple{Int, Int}} = 100`: If int, it is the total number of points generated. For odd numbers, the inner circle will have one point more than the outer circle. If two-element tuple, number of points in outer circle and inner circle.
+- `shuffle::Bool = true`: Whether to shuffle the samples.
+- `noise::Union{Nothing, Float64} = nothing`: Standard deviation of Gaussian noise added to the data.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset shuffling and noise. Pass an int for reproducible output across multiple function calls. 
+- `factor::Float64 = 0.8`: Scale factor between inner and outer circle.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_circles.html)
+
+"""
 function generate_circles(; n_samples::Union{Int, Tuple{Int, Int}} = 100,
                             shuffle::Bool = true,
                             noise::Union{Nothing, Float64} = nothing, 
