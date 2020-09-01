@@ -84,6 +84,34 @@ function generate_s_curve(; n_samples::Int = 100,
     
     return convert(features, labels)
 end
+
+"""
+    generate_regression(;   n_samples::Int = 100,
+                            n_features::Int = 100,
+                            n_informative::Int = 10,
+                            n_targets::Int = 1,
+                            bias::Float64 = 0.0,
+                            effective_rank::Union{Int, Nothing} = nothing, 
+                            tail_strength::Float64 = 0.5, 
+                            noise::Float64 = 0.0, 
+                            shuffle::Bool = true, 
+                            coef::Bool = false, 
+                            random_state::Union{Int, Nothing}= nothing)
+Generate a random regression problem. Sklearn interface to make_regression.
+# Arguments
+- `n_samples::Int = 100`: The number of samples.
+- `n_features::Int = 2`: The number of features.
+- `n_informative::Int = 10`: The number of informative features, i.e., the number of features used to build the linear model used to generate the output.
+- `n_targets::Int = 1`: The number of regression targets, i.e., the dimension of the y output vector associated with a sample. By default, the output is a scalar.
+- `bias::Float = 0.0`: The bias term in the underlying linear model.
+- `effective_rank::Union{Int, Nothing} = nothing`: If not `nothing`, the approximate number of singular vectors required to explain most of the input data by linear combinations. Using this kind of singular spectrum in the input allows the generator to reproduce the correlations often observed in practice. If `nothing`, the input set is well conditioned, centered and gaussian with unit variance.
+- `tail_strength::Float = 0.5`: The relative importance of the fat noisy tail of the singular values profile if effective_rank is not None.
+- `noise::Union{Nothing, Float64} = nothing`: Standard deviation of Gaussian noise added to the data.
+- `shuffle::Bool = true`: Shuffle the samples and the features.
+- `coef::Bool = false`: If `true`, the coefficients of the underlying linear model are returned.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset shuffling and noise.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html)
+"""
 function generate_regression(;  n_samples::Int = 100, 
                                 n_features::Int = 100,
                                 n_informative::Int = 10, 
