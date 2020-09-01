@@ -30,6 +30,7 @@ Dataset         | Title                                                         
 make_blobs      | Generate isotropic Gaussian blobs for clustering.                      | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_moons.html)
 make_moons      | Make two interleaving half circles                                     | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html)
 make_s_curve    | Generate an S curve dataset.                                           | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_s_curve.html)
+make_circles    | Make a large circle containing a smaller circle in 2d                  | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_circles.html])
 
 **Disclaimer**: SyntheticDatasets.jl borrows code and documentation from
 [scikit-learn](https://scikit-learn.org/stable/modules/classes.html#samples-generator) in the dataset module, but *it is not an official part
