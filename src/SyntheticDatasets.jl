@@ -75,6 +75,17 @@ function generate_blobs(;n_samples::Union{Int, Array{Int, 1}} = 100,
     return convert(features, labels)
 end
 
+"""
+    generate_s_curve(;  n_samples::Int = 100, 
+                        noise = nothing, 
+                        random_state = nothing)::DataFrame
+Generate an S curve dataset. Sklearn interface to make_s_curve. 
+# Arguments
+- `n_samples::Int = 100`: The number of sample points on the S curve.
+- `noise::Union{Nothing, Float64} = nothing`: Standard deviation of Gaussian noise added to the data.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_s_curve.html)
+"""
 function generate_s_curve(; n_samples::Int = 100,
                             noise::Float64 = 0.0, 
                             random_state::Union{Int, Nothing} = nothing)::DataFrame
