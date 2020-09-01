@@ -17,4 +17,12 @@ using Test
 
     @test size(data)[1] == samples
     @test size(data)[2] == 3
+
+    data = SyntheticDatasets.generate_s_curve(n_samples = samples,
+                                              noise = 2.2,
+                                              random_state = 5)
+
+    @test size(data)[1] == samples
+    @test size(data)[2] == 4
+
 end
