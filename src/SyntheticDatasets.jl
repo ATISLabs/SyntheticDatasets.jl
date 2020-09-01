@@ -86,7 +86,7 @@ function generate_s_curve(; n_samples::Int = 100,
     return convert(features, labels)
 end
 
-function convert(features::Array{T, 2}, labels::Array{Int, 1})::DataFrame where T <: Number
+function convert(features::Array{T, 2}, labels::Array{D, 1})::DataFrame where {T <: Number, D <: Number}
     df = DataFrame()
 
     for i = 1:size(features)[2]
