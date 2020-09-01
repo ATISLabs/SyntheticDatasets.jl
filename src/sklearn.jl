@@ -125,17 +125,17 @@ function generate_regression(;  n_samples::Int = 100,
                                 random_state::Union{Int, Nothing}= nothing)
 
     
-    (features, labels) = datasets.make_regression(   n_samples = n_samples,
-                                                n_features = n_features,
-                                                n_informative = n_informative, 
-                                                n_targets = n_targets,
-                                                bias = bias,
-                                                effective_rank = effective_rank,
-                                                tail_strength = tail_strength,
-                                                noise = noise,
-                                                shuffle = shuffle,
-                                                coef = coef,
-                                                random_state = random_state)
+    (features, labels) = datasets.make_regression(  n_samples = n_samples,
+                                                    n_features = n_features,
+                                                    n_informative = n_informative, 
+                                                    n_targets = n_targets,
+                                                    bias = bias,
+                                                    effective_rank = effective_rank,
+                                                    tail_strength = tail_strength,
+                                                    noise = noise,
+                                                    shuffle = shuffle,
+                                                    coef = coef,
+                                                    random_state = random_state)
     
 
     return convert(features, labels)
