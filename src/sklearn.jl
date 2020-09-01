@@ -84,3 +84,32 @@ function generate_s_curve(; n_samples::Int = 100,
     
     return convert(features, labels)
 end
+function generate_regression(;  n_samples::Int = 100, 
+                                n_features::Int = 100,
+                                n_informative::Int = 10, 
+                                n_targets::Int = 1, 
+                                bias::Float64 = 0.0, 
+                                effective_rank::Union{Int, Nothing} = nothing, 
+                                tail_strength::Float64 = 0.5, 
+                                noise::Float64 = 0.0, 
+                                shuffle::Bool = true, 
+                                coef::Bool = false, 
+                                random_state::Union{Int, Nothing}= nothing)
+
+    
+    (features, labels) = datasets.make_regression(   n_samples = n_samples,
+                                                n_features = n_features,
+                                                n_informative = n_informative, 
+                                                n_targets = n_targets,
+                                                bias = bias,
+                                                effective_rank = effective_rank,
+                                                tail_strength = tail_strength,
+                                                noise = noise,
+                                                shuffle = shuffle,
+                                                coef = coef,
+                                                random_state = random_state)
+    
+
+    return convert(features, labels)
+
+end
