@@ -44,7 +44,7 @@ end
                         center_box = (-10.0, 10.0),
                         shuffle::Bool = true, 
                         random_state::Union{Int, Nothing} = nothing)::DataFrame
-Make two interleaving half circles. Sklearn interface to make_moons. 
+Generate isotropic Gaussian blobs for clustering. Sklearn interface to make_blobs. 
 # Arguments
 - `n_samples = 100`: If int, it is the total number of points equally divided among clusters. If array-like, each element of the sequence indicates the number of samples per cluster. 
 - `n_features = 2`: The number of features for each sample.
