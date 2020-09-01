@@ -75,6 +75,17 @@ function generate_blobs(;n_samples::Union{Int, Array{Int, 1}} = 100,
     return convert(features, labels)
 end
 
+function generate_s_curve(; n_samples::Int = 100,
+                            noise::Float64 = 0.0, 
+                            random_state::Union{Int, Nothing} = nothing)::DataFrame
+        
+    (features, labels) = datasets.make_s_curve(   n_samples = n_samples,
+                                                noise = noise, 
+                                                random_state = random_state)
+    
+    return convert(features, labels)
+end
+
 function convert(features::Array{T, 2}, labels::Array{Int, 1})::DataFrame where T <: Number
     df = DataFrame()
 
