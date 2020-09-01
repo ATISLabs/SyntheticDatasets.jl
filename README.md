@@ -33,7 +33,7 @@ make_s_curve    | Generate an S curve dataset.                                  
 
 **Disclaimer**: SyntheticDatasets.jl borrows code and documentation from
 [scikit-learn](https://scikit-learn.org/stable/modules/classes.html#samples-generator) in the dataset module, but *it is not an official part
-of that project*. It is licensed under [BSD-3](LICENSE).
+of that project*. It is licensed under [MIT](LICENSE).
 
 [travis-img]: https://travis-ci.com/ATISLabs/SyntheticDatasets.jl.svg?branch=master
 [travis-url]: https://travis-ci.com/ATISLabs/SyntheticDatasets.jl
