@@ -31,6 +31,10 @@ make_blobs      | Generate isotropic Gaussian blobs for clustering.             
 make_moons      | Make two interleaving half circles                                     | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html)
 make_s_curve    | Generate an S curve dataset.                                           | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_s_curve.html)
 
+**Disclaimer**: SyntheticDatasets.jl borrows code and documentation from
+[scikit-learn](https://scikit-learn.org/stable/modules/classes.html#samples-generator) in the dataset module, but *it is not an official part
+of that project*. It is licensed under [BSD-3](LICENSE).
+
 [travis-img]: https://travis-ci.com/ATISLabs/SyntheticDatasets.jl.svg?branch=master
 [travis-url]: https://travis-ci.com/ATISLabs/SyntheticDatasets.jl
 
