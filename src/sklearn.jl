@@ -84,3 +84,18 @@ function generate_s_curve(; n_samples::Int = 100,
     
     return convert(features, labels)
 end
+
+function generate_circles(; n_samples::Union{Int, Tuple{Int, Int}} = 100,
+                            shuffle::Bool = true,
+                            noise::Union{Nothing, Float64} = nothing, 
+                            random_state::Union{Int, Nothing} = nothing,
+                            factor::Float64 = 0.8)::DataFrame
+
+(features, labels) = datasets.make_circles( n_samples = n_samples,
+                        shuffle = shuffle, 
+                        noise = noise,
+                        random_state = random_state,
+                        factor = factor)
+
+return convert(features, labels)
+end
