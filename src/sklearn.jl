@@ -112,16 +112,16 @@ Generate a random regression problem. Sklearn interface to make_regression.
 - `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset shuffling and noise.
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html)
 """
-function generate_regression(;  n_samples::Int = 100, 
+function generate_regression(;  n_samples::Int = 100,
                                 n_features::Int = 100,
-                                n_informative::Int = 10, 
-                                n_targets::Int = 1, 
-                                bias::Float64 = 0.0, 
-                                effective_rank::Union{Int, Nothing} = nothing, 
-                                tail_strength::Float64 = 0.5, 
-                                noise::Float64 = 0.0, 
-                                shuffle::Bool = true, 
-                                coef::Bool = false, 
+                                n_informative::Int = 10,
+                                n_targets::Int = 1,
+                                bias::Float64 = 0.0,
+                                effective_rank::Union{Int, Nothing} = nothing,
+                                tail_strength::Float64 = 0.5,
+                                noise::Float64 = 0.0,
+                                shuffle::Bool = true,
+                                coef::Bool = false,
                                 random_state::Union{Int, Nothing}= nothing)
 
     
