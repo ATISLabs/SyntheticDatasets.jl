@@ -4,6 +4,8 @@ using Test
 
 @testset "SkLearn Generators" begin
     samples = 20000
+    features = 20
+
     data = SyntheticDatasets.generate_blobs(centers = [-1 1;-0.5 0.75], 
                                             cluster_std = 0.225, 
                                             n_samples = 20000,
@@ -24,5 +26,14 @@ using Test
 
     @test size(data)[1] == samples
     @test size(data)[2] == 4
+
+
+    data = SyntheticDatasets.generate_regression(n_samples = samples,
+                                                 n_features = features,
+                                                 noise = 2.2,
+                                                 random_state = 5)
+
+    @test size(data)[1] == samples
+    @test size(data)[2] == features + 1
 
 end
