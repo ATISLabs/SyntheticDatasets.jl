@@ -262,6 +262,17 @@ function generate_friedman2(;   n_samples::Int = 100,
     return convert(features, labels)
 end
 
+"""
+    function generate_friedman3(;   n_samples::Int = 100,
+                                    noise::Float64 = 0.0, 
+                                    random_state::Union{Int, Nothing} = nothing)::DataFrame
+Generate the “Friedman #3” regression problem. Sklearn interface to make_friedman3.
+#Arguments
+- `n_samples::Int = 100`: The number of samples.
+- `noise::Union{Nothing, Float64} = nothing`: The standard deviation of the gaussian noise applied to the output.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset noise. Pass an int for reproducible output across multiple function calls.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman3.html)
+"""
 function generate_friedman3(;   n_samples::Int = 100,
                                 noise::Float64 = 0.0, 
                                 random_state::Union{Int, Nothing} = nothing)::DataFrame
