@@ -188,8 +188,8 @@ function generate_classification(;  n_samples::Int = 100,
                                     flip_y::Float64 = 0.01,
                                     class_sep::Float64 = 1.0,
                                     hypercube::Bool = true, 
-                                    shift::Union{Nothing, Array{Float64,1}} = 0.0,
-                                    scale::Union{Nothing, Array{Float64,1}} = 1.0, 
+                                    shift::Union{Nothing, Float64, Array{Float64,1}} = 0.0,
+                                    scale::Union{Nothing, Float64, Array{Float64,1}} = 1.0, 
                                     shuffle::Bool = true, 
                                     random_state::Union{Int, Nothing} = nothing)
 
