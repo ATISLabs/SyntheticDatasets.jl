@@ -212,3 +212,16 @@ function generate_classification(;  n_samples::Int = 100,
 
     return convert(features, labels)
 end
+
+function generate_friedman1(;   n_samples::Int = 100,
+                                n_features::Int = 10,
+                                noise::Float64 = 0.0, 
+                                random_state::Union{Int, Nothing} = nothing)::DataFrame
+
+    (features, labels) = datasets.make_friedman1(   n_samples = n_samples,
+                                                    n_features = n_features,
+                                                    noise = noise, 
+                                                    random_state = random_state)
+
+    return convert(features, labels)
+end
