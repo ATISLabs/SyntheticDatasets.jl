@@ -25,4 +25,9 @@ using Test
     @test size(data)[1] == samples
     @test size(data)[2] == 4
 
+    data = SyntheticDatasets.generate_circles(n_samples = samples)
+
+    @test size(data)[1] == samples
+    @test size(data)[2] == 3
+
 end
