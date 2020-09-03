@@ -213,6 +213,19 @@ function generate_classification(;  n_samples::Int = 100,
     return convert(features, labels)
 end
 
+"""
+    function generate_friedman1(;   n_samples::Int = 100,
+                                    n_features::Int = 10,
+                                    noise::Float64 = 0.0, 
+                                    random_state::Union{Int, Nothing} = nothing)::DataFrame
+Generate the “Friedman #1” regression problem. Sklearn interface to make_regression.
+#Arguments
+- `n_samples::Int = 100`: The number of samples.
+- `n_features::Int = 10`: The number of features. Should be at least 5.
+- `noise::Union{Nothing, Float64} = nothing`: The standard deviation of the gaussian noise applied to the output.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset noise. Pass an int for reproducible output across multiple function calls.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman1.html)
+"""
 function generate_friedman1(;   n_samples::Int = 100,
                                 n_features::Int = 10,
                                 noise::Float64 = 0.0, 
