@@ -261,3 +261,14 @@ function generate_friedman2(;   n_samples::Int = 100,
 
     return convert(features, labels)
 end
+
+function generate_friedman3(;   n_samples::Int = 100,
+                                noise::Float64 = 0.0, 
+                                random_state::Union{Int, Nothing} = nothing)::DataFrame
+
+    (features, labels) = datasets.make_friedman3(   n_samples = n_samples,
+                                                    noise = noise, 
+                                                    random_state = random_state)
+
+    return convert(features, labels)
+end
