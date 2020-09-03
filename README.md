@@ -32,6 +32,9 @@ make_moons      | Make two interleaving half circles                            
 make_s_curve    | Generate an S curve dataset.                                           | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_s_curve.html)
 make_regression | Generate a random regression problem.                                  | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html])
 make_classification | Generate a random n-class classification problem.                                  | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html])
+make_friedman1 | Generate the “Friedman #1” regression problem.                                  | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman1.html)
+make_friedman2 | Generate the “Friedman #2” regression problem.                                  | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman2.html)
+make_friedman3 | Generate the “Friedman #3” regression problem.                                  | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman3.html)
 
 **Disclaimer**: SyntheticDatasets.jl borrows code and documentation from
 [scikit-learn](https://scikit-learn.org/stable/modules/classes.html#samples-generator) in the dataset module, but *it is not an official part
