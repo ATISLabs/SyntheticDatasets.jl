@@ -141,3 +141,39 @@ function generate_regression(;  n_samples::Int = 100,
     return convert(features, labels)
 
 end
+
+function generate_classification(;  n_samples::Int = 100,
+                                    n_features::Int = 20,
+                                    n_informative::Int = 2,
+                                    n_redundant::Int = 2,
+                                    n_repeated::Int = 0,
+                                    n_classes::Int = 2,
+                                    n_clusters_per_class::Int = 2,
+                                    weights::Union{Nothing, Array{Float64,1}} = nothing,
+                                    flip_y::Float64 = 0.01,
+                                    class_sep::Float64 = 1.0,
+                                    hypercube::Bool = true, 
+                                    shift::Union{Nothing, Array{Float64,1}} = 0.0,
+                                    scale::Union{Nothing, Array{Float64,1}} = 1.0, 
+                                    shuffle::Bool = true, 
+                                    random_state::Union{Int, Nothing} = nothing)
+
+
+    (features, labels) = datasets.make_classification(  n_samples = n_samples,
+                                                        n_features = n_features,
+                                                        n_informative = n_informative,
+                                                        n_redundant = n_redundant,
+                                                        n_repeated = n_repeated,
+                                                        n_classes = n_classes,
+                                                        n_clusters_per_class = n_clusters_per_class,
+                                                        weights = weights,
+                                                        flip_y = flip_y,
+                                                        class_sep = class_sep,
+                                                        hypercube = hypercube,
+                                                        shift = shift,
+                                                        scale = scale,
+                                                        shuffle = shuffle,
+                                                        random_state = random_state)
+
+    return convert(features, labels)
+end
