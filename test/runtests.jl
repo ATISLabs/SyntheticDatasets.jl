@@ -53,8 +53,8 @@ using Test
                                                     effective_rank = 10,
                                                     tail_strength = 0.5,
                                                     random_state = 5)
-                                                    
+
     @test size(data)[1] == samples
-    @test size(data)[2] == features + 1
+    @test size(data)[2] == features
 
 end
