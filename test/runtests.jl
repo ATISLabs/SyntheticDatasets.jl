@@ -53,7 +53,13 @@ using Test
                                                     tail_strength = 0.5,
                                                     random_state = 5)
 
-
     @test size(data)[1] == samples
     @test size(data)[2] == features
+    
+    data = SyntheticDatasets.generate_swiss_roll(n_samples =samples,
+                                                 noise = 2.2,
+                                                 random_state = 5)
+
+    @test size(data)[1] == samples
+    @test size(data)[2] == 4
 end
