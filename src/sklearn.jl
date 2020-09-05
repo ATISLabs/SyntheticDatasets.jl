@@ -240,7 +240,6 @@ function generate_classification(;  n_samples::Int = 100,
     return convert(features, labels)
 end
 
-
 """
 function generate_low_rank_matrix(; n_samples::Int =100,
                                     n_features::Int =100,
@@ -267,8 +266,5 @@ function generate_low_rank_matrix(; n_samples::Int = 100,
                                                        effective_rank = effective_rank,
                                                        tail_strength = tail_strength,
                                                        random_state = random_state)
-   labels = zeros(size(features, 1))
-    
-   return convert(features, labels)
-
+   return features
 end
