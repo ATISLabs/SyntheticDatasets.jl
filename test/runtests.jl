@@ -47,6 +47,15 @@ using Test
     @test size(data)[1] == samples
     @test size(data)[2] == features + 1
 
+    data = SyntheticDatasets.generate_low_rank_matrix(n_samples = samples,
+                                                    n_features = features,
+                                                    effective_rank = 10,
+                                                    tail_strength = 0.5,
+                                                    random_state = 5)
+
+    @test size(data)[1] == samples
+    @test size(data)[2] == features
+    
     data = SyntheticDatasets.generate_swiss_roll(n_samples =samples,
                                                  noise = 2.2,
                                                  random_state = 5)

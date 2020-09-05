@@ -241,6 +241,35 @@ function generate_classification(;  n_samples::Int = 100,
 end
 
 """
+function generate_low_rank_matrix(; n_samples::Int =100,
+                                    n_features::Int =100,
+                                    effective_rank::Int =10,
+                                    tail_strength::Float64 =0.5,
+                                    random_state::Union{Int, Nothing} = nothing)
+Generate a mostly low rank matrix with bell-shaped singular values
+#Arguments
+- `n_samples::Int = 100`: The number of samples.
+- `n_features::Int = 20`: The total number of features. These comprise `n_informative` informative features, `n_redundant` redundant features, `n_repeated` duplicated features and `n_features-n_informative-n_redundant-n_repeated` useless features drawn at random.
+- `effective_rank::Int = 10`: The approximate number of singular vectors required to explain most of the data by linear combinations.
+- `tail_strength::Float64 = 0.5`: The relative importance of the fat noisy tail of the singular values profile.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls. See Glossary.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_low_rank_matrix.html)
+"""
+function generate_low_rank_matrix(; n_samples::Int = 100,
+                                    n_features::Int = 100,
+                                    effective_rank::Int = 10,
+                                    tail_strength::Float64 = 0.5,
+                                    random_state::Union{Int, Nothing} = nothing)
+
+    features = datasets.make_low_rank_matrix(n_samples = n_samples,
+                                                       n_features = n_features,
+                                                       effective_rank = effective_rank,
+                                                       tail_strength = tail_strength,
+                                                       random_state = random_state)
+   return features
+end
+
+"""
 function generate_swiss_roll(;  n_samples::Int = 100,
                                noise::Float64 = 0.0,
                                random_state::Union{Int,Nothing} = nothing)
