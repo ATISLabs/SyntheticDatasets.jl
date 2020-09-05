@@ -27,7 +27,6 @@ using Test
     @test size(data)[1] == samples
     @test size(data)[2] == 4
 
-
     data = SyntheticDatasets.generate_regression(n_samples = samples,
                                                  n_features = features,
                                                  noise = 2.2,
@@ -40,7 +39,6 @@ using Test
                                                     n_features = features,
                                                     n_classes = 1)
 
-
     @test size(data)[1] == samples
     @test size(data)[2] == features + 1
 
@@ -48,8 +46,6 @@ using Test
                                                  noise = 2.2,
                                                  random_state = 5)
 
-     @test @show size(data)[1] == samples
-     @test size(data)[2] == 4
-
-
+    @test @show size(data)[1] == samples
+    @test size(data)[2] == 4
 end
