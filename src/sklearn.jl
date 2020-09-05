@@ -267,6 +267,8 @@ function generate_low_rank_matrix(; n_samples::Int = 100,
                                                        effective_rank = effective_rank,
                                                        tail_strength = tail_strength,
                                                        random_state = random_state)
-   #return convert(features, labels)
+   labels = zeros(size(features, 1))
+    
+   return convert(features, labels)
 
 end
