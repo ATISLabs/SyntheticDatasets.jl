@@ -262,7 +262,7 @@ function generate_low_rank_matrix(; n_samples::Int = 100,
                                     tail_strength::Float64 = 0.5,
                                     random_state::Union{Int, Nothing} = nothing)
 
-    (features, labels) = datasets.make_low_rank_matrix(n_samples = n_samples,
+    features = datasets.make_low_rank_matrix(n_samples = n_samples,
                                                        n_features = n_features,
                                                        effective_rank = effective_rank,
                                                        tail_strength = tail_strength,
