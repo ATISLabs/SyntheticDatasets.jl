@@ -212,3 +212,26 @@ function generate_classification(;  n_samples::Int = 100,
 
     return convert(features, labels)
 end
+"""
+function generate_swiss_roll(;  n_samples::Int = 100,
+                               noise::Float64 = 0.0,
+                               random_state::Union{Int,Nothing} = nothing)
+Generate a swiss roll dataset.
+#Arguments
+- `n_samples::Int = 100`: The number of samples.
+- `noise::Float64 = 0.0 : Standard deviation of Gaussian noise added to the data.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls. See Glossary.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_swiss_roll.htmll)
+"""
+function generate_swiss_roll(;  n_samples::Int = 100,
+                               noise::Float64 = 0.0,
+                               random_state::Union{Int,Nothing} = nothing)
+
+
+   (features, labels) = datasets.make_swiss_roll(  n_samples = n_samples,
+                                                   noise = noise,
+                                                   random_state = random_state)
+
+   return convert(features, labels)
+
+end
