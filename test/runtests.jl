@@ -44,4 +44,20 @@ using Test
     @test size(data)[1] == samples
     @test size(data)[2] == features + 1
 
+    data = SyntheticDatasets.generate_friedman1(n_samples = samples,
+                                                    n_features = features)
+
+    @test size(data)[1] == samples
+    @test size(data)[2] == features + 1
+
+    data = SyntheticDatasets.generate_friedman2(n_samples = samples)
+
+    @test size(data)[1] == samples
+    @test size(data)[2] == 5
+
+    data = SyntheticDatasets.generate_friedman3(n_samples = samples)
+
+    @test size(data)[1] == samples
+    @test size(data)[2] == 5
+
 end
