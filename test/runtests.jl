@@ -27,6 +27,11 @@ using Test
     @test size(data)[1] == samples
     @test size(data)[2] == 4
 
+    data = SyntheticDatasets.generate_circles(n_samples = samples)
+
+    @test size(data)[1] == samples
+    @test size(data)[2] == 3
+
     data = SyntheticDatasets.generate_regression(n_samples = samples,
                                                  n_features = features,
                                                  noise = 2.2,
@@ -46,6 +51,6 @@ using Test
                                                  noise = 2.2,
                                                  random_state = 5)
 
-    @test @show size(data)[1] == samples
+    @test size(data)[1] == samples
     @test size(data)[2] == 4
 end

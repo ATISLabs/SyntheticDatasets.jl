@@ -86,6 +86,37 @@ function generate_s_curve(; n_samples::Int = 100,
 end
 
 """
+    function generate_circles(; n_samples::Int = 100,
+                                shuffle::Bool = true,
+                                noise::Float64 = 0.0, 
+                                random_state::Union{Int, Nothing} = nothing,
+                                factor::Float64 = 0.8)::DataFrame
+Make a large circle containing a smaller circle in 2d. Sklearn interface to make_circles.
+# Arguments
+- `n_samples::Union{Int, Tuple{Int, Int}} = 100`: If int, it is the total number of points generated. For odd numbers, the inner circle will have one point more than the outer circle. If two-element tuple, number of points in outer circle and inner circle.
+- `shuffle::Bool = true`: Whether to shuffle the samples.
+- `noise::Union{Nothing, Float64} = nothing`: Standard deviation of Gaussian noise added to the data.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset shuffling and noise. Pass an int for reproducible output across multiple function calls. 
+- `factor::Float64 = 0.8`: Scale factor between inner and outer circle.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_circles.html)
+
+"""
+function generate_circles(; n_samples::Union{Int, Tuple{Int, Int}} = 100,
+                            shuffle::Bool = true,
+                            noise::Union{Nothing, Float64} = nothing, 
+                            random_state::Union{Int, Nothing} = nothing,
+                            factor::Float64 = 0.8)::DataFrame
+
+    (features, labels) = datasets.make_circles( n_samples = n_samples,
+                            shuffle = shuffle, 
+                            noise = noise,
+                            random_state = random_state,
+                            factor = factor)
+
+    return convert(features, labels)
+end
+
+"""
     generate_regression(;   n_samples::Int = 100,
                             n_features::Int = 100,
                             n_informative::Int = 10,
@@ -124,7 +155,6 @@ function generate_regression(;  n_samples::Int = 100,
                                 coef::Bool = false,
                                 random_state::Union{Int, Nothing}= nothing)
 
-    
     (features, labels) = datasets.make_regression(  n_samples = n_samples,
                                                     n_features = n_features,
                                                     n_informative = n_informative, 
@@ -136,10 +166,8 @@ function generate_regression(;  n_samples::Int = 100,
                                                     shuffle = shuffle,
                                                     coef = coef,
                                                     random_state = random_state)
-    
 
     return convert(features, labels)
-
 end
 
 """
@@ -192,7 +220,6 @@ function generate_classification(;  n_samples::Int = 100,
                                     scale::Union{Nothing, Float64, Array{Float64,1}} = 1.0, 
                                     shuffle::Bool = true, 
                                     random_state::Union{Int, Nothing} = nothing)
-
 
     (features, labels) = datasets.make_classification(  n_samples = n_samples,
                                                         n_features = n_features,
