@@ -239,3 +239,23 @@ function generate_classification(;  n_samples::Int = 100,
 
     return convert(features, labels)
 end
+
+function generate_checkerboard(shape::Tuple{Int, Int},
+                                n_clusters::Union{Int, Tuple{Int, Int}};
+                                noise::Float64 = 0.0, 
+                                minval::Int = 3, 
+                                maxval::Int = 100, 
+                                shuffle::Bool = true, 
+                                random_state::Union{Nothing, Int} = nothing)
+
+
+    (features, rows, columns) = datasets.make_checkerboard(shape = shape,
+                                                    n_clusters = n_clusters,
+                                                    noise = noise,
+                                                    minval = minval,
+                                                    maxval = maxval,
+                                                    shuffle = true,
+                                                    random_state = random_state)
+
+    return convert(features, "feature"), convert(rows, "row"), convert(columns, "column")
+end
