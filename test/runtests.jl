@@ -48,4 +48,16 @@ using Test
     @test size(data)[1] == samples
     @test size(data)[2] == features + 1
 
+    n_clusters = 3
+    samples = 10
+    features = 4
+    X, rows, cols = SyntheticDatasets.generate_checkerboard((samples, features), n_clusters)
+    
+    @test size(X)[1] == samples
+    @test size(X)[2] == features
+
+    @test size(rows)[2] == samples 
+
+    @test size(cols)[2] == features
+
 end
