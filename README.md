@@ -33,6 +33,7 @@ make_s_curve    | Generate an S curve dataset.                                  
 make_circles    | Make a large circle containing a smaller circle in 2d                  | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_circles.html])
 make_regression | Generate a random regression problem.                                  | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html])
 make_classification | Generate a random n-class classification problem.                                  | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html])
+make_checkerboard | Generate an array with block checkerboard structure for biclustering.                                  | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_checkerboard.html])
 
 **Disclaimer**: SyntheticDatasets.jl borrows code and documentation from
 [scikit-learn](https://scikit-learn.org/stable/modules/classes.html#samples-generator) in the dataset module, but *it is not an official part
