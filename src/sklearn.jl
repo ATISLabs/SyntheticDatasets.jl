@@ -257,6 +257,7 @@ Generate an array with block checkerboard structure for biclustering. Sklearn in
 - `maxval::Int = 100`: Maximum value of a bicluster.
 - `shuffle::Bool = true`: Shuffle the samples.
 - `random_state::Union{Nothing, Int} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_checkerboard.html)
 """
 function generate_checkerboard(shape::Tuple{Int, Int},
                                 n_clusters::Union{Int, Tuple{Int, Int}};
@@ -272,7 +273,7 @@ function generate_checkerboard(shape::Tuple{Int, Int},
                                                     noise = noise,
                                                     minval = minval,
                                                     maxval = maxval,
-                                                    shuffle = true,
+                                                    shuffle = shuffle,
                                                     random_state = random_state)
 
     return convert(features, "feature"), convert(rows, "row"), convert(columns, "column")
