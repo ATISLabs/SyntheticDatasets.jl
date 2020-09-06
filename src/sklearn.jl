@@ -240,6 +240,24 @@ function generate_classification(;  n_samples::Int = 100,
     return convert(features, labels)
 end
 
+"""
+function generate_checkerboard(;shape::Tuple{Int, Int},
+                                n_clusters::Tuple{Int, Int},
+                                noise::Float64 = 0.0, 
+                                minval::Int = 10, 
+                                maxval::Int = 100, 
+                                shuffle::Bool = true, 
+                                random_state::Union{Nothing, Int} = nothing)
+Generate an array with block checkerboard structure for biclustering. Sklearn interface to make_checkerboard.
+#Arguments
+- `shape::Tuple{Int, Int}`: The shape of the result.
+- `n_clusters::Tuple{Int, Int}: The number of row and column clusters.
+- `noise::Float64 = 0.0`: The standard deviation of the gaussian noise.
+- `minval::Int = 10`: Minimum value of a bicluster.
+- `maxval::Int = 100`: Maximum value of a bicluster.
+- `shuffle::Bool = true`: Shuffle the samples.
+- `random_state::Union{Nothing, Int} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls.
+"""
 function generate_checkerboard(shape::Tuple{Int, Int},
                                 n_clusters::Union{Int, Tuple{Int, Int}};
                                 noise::Float64 = 0.0, 
