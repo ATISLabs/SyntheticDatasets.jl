@@ -278,3 +278,125 @@ function generate_checkerboard(shape::Tuple{Int, Int},
 
     return convert(features, "feature"), convert(rows, "row"), convert(columns, "column")
 end
+
+"""
+    function generate_friedman1(;   n_samples::Int = 100,
+                                    n_features::Int = 10,
+                                    noise::Float64 = 0.0, 
+                                    random_state::Union{Int, Nothing} = nothing)::DataFrame
+Generate the “Friedman #1” regression problem. Sklearn interface to make_regression.
+#Arguments
+- `n_samples::Int = 100`: The number of samples.
+- `n_features::Int = 10`: The number of features. Should be at least 5.
+- `noise::Union{Nothing, Float64} = nothing`: The standard deviation of the gaussian noise applied to the output.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset noise. Pass an int for reproducible output across multiple function calls.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman1.html)
+"""
+function generate_friedman1(;   n_samples::Int = 100,
+                                n_features::Int = 10,
+                                noise::Float64 = 0.0, 
+                                random_state::Union{Int, Nothing} = nothing)::DataFrame
+
+    (features, labels) = datasets.make_friedman1(   n_samples = n_samples,
+                                                    n_features = n_features,
+                                                    noise = noise, 
+                                                    random_state = random_state)
+
+    return convert(features, labels)
+end
+
+"""
+    function generate_friedman2(;   n_samples::Int = 100,
+                                    noise::Float64 = 0.0, 
+                                    random_state::Union{Int, Nothing} = nothing)::DataFrame
+Generate the “Friedman #2” regression problem. Sklearn interface to make_friedman2.
+#Arguments
+- `n_samples::Int = 100`: The number of samples.
+- `n_features::Int = 10`: The number of features. Should be at least 5.
+- `noise::Union{Nothing, Float64} = nothing`: The standard deviation of the gaussian noise applied to the output.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset noise. Pass an int for reproducible output across multiple function calls.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman2.html)
+"""
+function generate_friedman2(;   n_samples::Int = 100,
+                                noise::Float64 = 0.0, 
+                                random_state::Union{Int, Nothing} = nothing)::DataFrame
+
+    (features, labels) = datasets.make_friedman2(   n_samples = n_samples,
+                                                    noise = noise, 
+                                                    random_state = random_state)
+
+    return convert(features, labels)
+end
+
+"""
+    function generate_friedman3(;   n_samples::Int = 100,
+                                    noise::Float64 = 0.0, 
+                                    random_state::Union{Int, Nothing} = nothing)::DataFrame
+Generate the “Friedman #3” regression problem. Sklearn interface to make_friedman3.
+#Arguments
+- `n_samples::Int = 100`: The number of samples.
+- `noise::Union{Nothing, Float64} = nothing`: The standard deviation of the gaussian noise applied to the output.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset noise. Pass an int for reproducible output across multiple function calls.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman3.html)
+"""
+function generate_friedman3(;   n_samples::Int = 100,
+                                noise::Float64 = 0.0, 
+                                random_state::Union{Int, Nothing} = nothing)::DataFrame
+
+    (features, labels) = datasets.make_friedman3(   n_samples = n_samples,
+                                                    noise = noise, 
+                                                    random_state = random_state)
+
+    return convert(features, labels)
+end
+
+"""
+function generate_low_rank_matrix(; n_samples::Int =100,
+                                    n_features::Int =100,
+                                    effective_rank::Int =10,
+                                    tail_strength::Float64 =0.5,
+                                    random_state::Union{Int, Nothing} = nothing)
+Generate a mostly low rank matrix with bell-shaped singular values
+#Arguments
+- `n_samples::Int = 100`: The number of samples.
+- `n_features::Int = 20`: The total number of features. These comprise `n_informative` informative features, `n_redundant` redundant features, `n_repeated` duplicated features and `n_features-n_informative-n_redundant-n_repeated` useless features drawn at random.
+- `effective_rank::Int = 10`: The approximate number of singular vectors required to explain most of the data by linear combinations.
+- `tail_strength::Float64 = 0.5`: The relative importance of the fat noisy tail of the singular values profile.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls. See Glossary.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_low_rank_matrix.html)
+"""
+function generate_low_rank_matrix(; n_samples::Int = 100,
+                                    n_features::Int = 100,
+                                    effective_rank::Int = 10,
+                                    tail_strength::Float64 = 0.5,
+                                    random_state::Union{Int, Nothing} = nothing)
+
+    features = datasets.make_low_rank_matrix(n_samples = n_samples,
+                                                       n_features = n_features,
+                                                       effective_rank = effective_rank,
+                                                       tail_strength = tail_strength,
+                                                       random_state = random_state)
+   return features
+end
+
+"""
+function generate_swiss_roll(;  n_samples::Int = 100,
+                               noise::Float64 = 0.0,
+                               random_state::Union{Int,Nothing} = nothing)
+Generate a swiss roll dataset.
+#Arguments
+- `n_samples::Int = 100`: The number of samples.
+- `noise::Float64 = 0.0 : Standard deviation of Gaussian noise added to the data.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls. See Glossary.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_swiss_roll.htmll)
+"""
+function generate_swiss_roll(;  n_samples::Int = 100,
+                               noise::Float64 = 0.0,
+                               random_state::Union{Int,Nothing} = nothing)
+
+   (features, labels) = datasets.make_swiss_roll(  n_samples = n_samples,
+                                                   noise = noise,
+                                                   random_state = random_state)
+
+   return convert(features, labels)
+end
