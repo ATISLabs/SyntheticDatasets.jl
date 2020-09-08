@@ -40,8 +40,15 @@ using Test
                                                     n_features = features,
                                                     n_classes = 1)
 
-                 
+
     @test size(data)[1] == samples
     @test size(data)[2] == features + 1
+
+
+    data = SyntheticDatasets.generate_twospirals(n_samples = samples,
+                                                 noise = 2.2)
+
+
+    @test size(data)[1] == samples
 
 end
