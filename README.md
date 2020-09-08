@@ -40,6 +40,7 @@ make_regression      | Generate a random regression problem.                    
 make_classification  | Generate a random n-class classification problem.                       | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html)
 make_low_rank_matrix | Generate a mostly low rank matrix with bell-shaped singular values.     | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_low_rank_matrix.html)
 make_swiss_roll      | Generate a swiss roll dataset.                                          | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_swiss_roll.html)
+make_checkerboard    | Generate an array with block checkerboard structure for biclustering.   | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_checkerboard.html])
 
 **Disclaimer**: SyntheticDatasets.jl borrows code and documentation from
 [scikit-learn](https://scikit-learn.org/stable/modules/classes.html#samples-generator) in the dataset module, but *it is not an official part

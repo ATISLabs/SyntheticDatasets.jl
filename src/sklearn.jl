@@ -241,6 +241,45 @@ function generate_classification(;  n_samples::Int = 100,
 end
 
 """
+function generate_checkerboard(;shape::Tuple{Int, Int},
+                                n_clusters::Tuple{Int, Int},
+                                noise::Float64 = 0.0, 
+                                minval::Int = 10, 
+                                maxval::Int = 100, 
+                                shuffle::Bool = true, 
+                                random_state::Union{Nothing, Int} = nothing)
+Generate an array with block checkerboard structure for biclustering. Sklearn interface to make_checkerboard.
+#Arguments
+- `shape::Tuple{Int, Int}`: The shape of the result.
+- `n_clusters::Tuple{Int, Int}: The number of row and column clusters.
+- `noise::Float64 = 0.0`: The standard deviation of the gaussian noise.
+- `minval::Int = 10`: Minimum value of a bicluster.
+- `maxval::Int = 100`: Maximum value of a bicluster.
+- `shuffle::Bool = true`: Shuffle the samples.
+- `random_state::Union{Nothing, Int} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_checkerboard.html)
+"""
+function generate_checkerboard(shape::Tuple{Int, Int},
+                                n_clusters::Union{Int, Tuple{Int, Int}};
+                                noise::Float64 = 0.0, 
+                                minval::Int = 3, 
+                                maxval::Int = 100, 
+                                shuffle::Bool = true, 
+                                random_state::Union{Nothing, Int} = nothing)
+
+
+    (features, rows, columns) = datasets.make_checkerboard(shape = shape,
+                                                    n_clusters = n_clusters,
+                                                    noise = noise,
+                                                    minval = minval,
+                                                    maxval = maxval,
+                                                    shuffle = shuffle,
+                                                    random_state = random_state)
+
+    return convert(features, "feature"), convert(rows, "row"), convert(columns, "column")
+end
+
+"""
     function generate_friedman1(;   n_samples::Int = 100,
                                     n_features::Int = 10,
                                     noise::Float64 = 0.0, 

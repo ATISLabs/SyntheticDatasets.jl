@@ -12,6 +12,21 @@ end
 
 include("sklearn.jl")
 
+function convert(matrix::Array{T, 2}, base_name::Union{String, Symbol} = :Column)::DataFrame where {T <: Number}
+    df = DataFrame()
+
+    for i = 1:size(matrix, 2)
+        df[!, Symbol(string(base_name) * "_$(i)")] = eltype(matrix)[]
+    end
+    
+        
+    for i=1:size(matrix, 1)
+        push!(df, (matrix[i, :]...,))
+    end
+
+    return df
+end
+
 function convert(features::Array{T, 2}, labels::Array{D, 1})::DataFrame where {T <: Number, D <: Number}
     df = DataFrame()
 
