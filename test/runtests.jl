@@ -79,9 +79,9 @@ using Test
     @test size(data)[1] == samples
     @test size(data)[2] == 4
 
-data = SyntheticDatasets.generate_hastie_10_2(n_samples = samples,
-                                              random_state = 5)
+    data = SyntheticDatasets.generate_hastie_10_2(n_samples = samples,
+                                                random_state = 5)
 
-@test size(data)[1] == samples
-@test size(data)[2] == 11
+    @test size(data)[1] == samples
+    @test size(data)[2] == 11
 end

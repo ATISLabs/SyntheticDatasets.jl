@@ -362,7 +362,6 @@ function generate_swiss_roll(;  n_samples::Int = 100,
    return convert(features, labels)
 end
 
-
 """
 function generate_hastie_10_2(;  n_samples::Int = 12000,
                                  random_state::Union{Int,Nothing} = nothing)
