@@ -361,3 +361,22 @@ function generate_swiss_roll(;  n_samples::Int = 100,
 
    return convert(features, labels)
 end
+
+
+"""
+function generate_hastie_10_2(;  n_samples::Int = 12000,
+                                 random_state::Union{Int,Nothing} = nothing)
+Generates data for binary classification used in Hastie et al. 2009, Example 10.2.
+#Arguments
+- `n_samples::Int = 100`: The number of samples..
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls. See Glossary.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_hastie_10_2.html)
+"""
+function generate_hastie_10_2(;  n_samples::Int = 12000,
+                               random_state::Union{Int,Nothing} = nothing)
+
+   (features, labels) = datasets.make_hastie_10_2(  n_samples = n_samples,
+                                                   random_state = random_state)
+
+   return convert(features, labels)
+end
