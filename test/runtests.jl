@@ -78,7 +78,6 @@ using Test
 
     @test size(data)[1] == samples
     @test size(data)[2] == 4
-end
 
 data = SyntheticDatasets.generate_hastie_10_2(n_samples = samples,
                                               random_state = 5)
