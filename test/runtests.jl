@@ -89,6 +89,5 @@ end
     data = SyntheticDatasets.generate_twospirals(n_samples = samples,
                                                  noise = 2.2)
 
-
     @test size(data)[1] == samples
 end
