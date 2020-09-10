@@ -36,13 +36,38 @@ end
 
 MethodDescriberSet(args...) = MethodDescriberSet([args...])
 
+function methodsFilter(methods::MethodDescriberSet, parameters::Union{Pair, Array{Pair}})
+    if !(parameters isa Array)
+        parameters = [parameters]
+    end
+
+    filtered_methods = Set()
+    
+    for parameter in parameters
+        if !(parameter[1] in fieldnames(MethodDescriber))
+            @warn "$(parameter[1]) isn't a property of MethodDescriber"
+            continue
+        end
+        for method in methods.describers 
+            property = getfield(method, parameter[1])
+            if property == parameter[2]
+                push!(filtered_methods, method)
+            end
+        end
+    end
+
+    return MethodDescriberSet(collect(filtered_methods))
+end
+
+methodsFilter(parameters::Union{Pair, Array{Pair}}) = (METHODS, parameters)
+
 function Base.show(io::IO, methods::MethodDescriberSet)
     for method in methods.describers
         println(method)
     end
 end
 
-_methods = MethodDescriberSet(
+const METHODS = MethodDescriberSet(
     MethodDescriber(
         "Generate_blobs",
         n_features = :Dynamic,
@@ -55,4 +80,4 @@ _methods = MethodDescriberSet(
         problem_type = :Regression),
 )
 
-methods() = println(_methods)
+methods() = println(METHODS)
