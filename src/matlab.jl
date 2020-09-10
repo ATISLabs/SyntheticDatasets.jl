@@ -21,10 +21,13 @@ function generate_twospirals(; n_samples::Int = 2000,
    N2 = n_samples - N1;
 
    n = start_degrees .+ sqrt.(rand(N1,1)) .* deg2rad(total_degrees);
-   d1 = [-cos.(n).*n + rand(N1,1).*noise sin.(n).*n+rand(N1,1).*noise zeros(N1,1)];
+   d1 = [-cos.(n).*n + rand(N1,1).*noise sin.(n).*n+rand(N1,1).*noise];
 
    n = start_degrees .+ sqrt.(rand(N2,1)) .* deg2rad(total_degrees);
-   d2 = [cos.(n).*n+rand(N2,1)*noise -sin.(n).*n+rand(N2,1)*noise ones(N2,1)];
+   d2 = [cos.(n).*n+rand(N2,1)*noise -sin.(n).*n+rand(N2,1)*noise];
 
-   return [d1; d2];
+   features = [d1; d2]
+   labels = [zeros(Int, N1); ones(Int, N1)]
+
+   return convert(features, labels);
 end
