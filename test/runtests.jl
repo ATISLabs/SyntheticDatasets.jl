@@ -47,6 +47,9 @@ using Test
     @test size(data)[1] == samples
     @test size(data)[2] == features + 1
 
+    @test size(data)[1] == samples
+    @test size(data)[2] == features + 1
+
     data = SyntheticDatasets.generate_friedman1(n_samples = samples,
                                                     n_features = features)
 
@@ -85,4 +88,13 @@ using Test
 
     @test size(data)[1] == samples
     @test size(data)[2] == features + 1
+end
+
+@testset "Matlab Generators" begin
+    samples = 20000
+
+    data = SyntheticDatasets.generate_twospirals(n_samples = samples,
+                                                 noise = 2.2)
+
+    @test size(data)[1] == samples
 end

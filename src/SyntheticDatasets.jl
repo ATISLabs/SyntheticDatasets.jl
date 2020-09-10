@@ -11,6 +11,7 @@ function __init__()
 end
 
 include("sklearn.jl")
+include("matlab.jl")
 
 function convert(features::Array{T, 2}, labels::Array{D, 1})::DataFrame where {T <: Number, D <: Number}
     df = DataFrame()

@@ -46,6 +46,12 @@ make_gaussian_quantiles | Generate a swiss roll dataset.                        
 [scikit-learn](https://scikit-learn.org/stable/modules/classes.html#samples-generator) in the dataset module, but *it is not an official part
 of that project*. It is licensed under [MIT](LICENSE).
 
+### Other Functions
+
+Dataset              | Title                                                                   | Reference
+---------------------|-------------------------------------------------------------------------|--------------------------------------------------
+generate_twospirals  | Generate two spirals dataset.                                           | [link](https://la.mathworks.com/matlabcentral/fileexchange/41459-6-functions-for-generating-artificial-datasets)
+
 [travis-img]: https://travis-ci.com/ATISLabs/SyntheticDatasets.jl.svg?branch=master
 [travis-url]: https://travis-ci.com/ATISLabs/SyntheticDatasets.jl
 
