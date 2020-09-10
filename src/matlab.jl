@@ -27,7 +27,7 @@ function generate_twospirals(; n_samples::Int = 2000,
    d2 = [cos.(n).*n+rand(N2,1)*noise -sin.(n).*n+rand(N2,1)*noise];
 
    features = [d1; d2]
-   labels = [zeros(Int, N1); ones(Int, N1)]
+   labels = [zeros(Int, N1); ones(Int, N2)]
 
    return convert(features, labels);
 end
