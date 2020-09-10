@@ -59,7 +59,7 @@ function methodsFilter(methods::MethodDescriberSet, parameters::Union{Pair, Arra
     return MethodDescriberSet(collect(filtered_methods))
 end
 
-methodsFilter(parameters::Union{Pair, Array{Pair}}) = (METHODS, parameters)
+methodsFilter(parameters::Union{Pair, Array{Pair}}) = methodsFilter(METHODS, parameters)
 
 function Base.show(io::IO, methods::MethodDescriberSet)
     for method in methods.describers
