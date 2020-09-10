@@ -82,12 +82,12 @@ using Test
     n_clusters = 3
     samples = 10
     features = 4
-    X, rows, cols = SyntheticDatasets.generate_checkerboard((samples, features), n_clusters)
+    data = SyntheticDatasets.generate_checkerboard((samples, features), n_clusters)
     
-    @test size(X)[1] == samples
-    @test size(X)[2] == features
+    @test size(data.X)[1] == samples
+    @test size(data.X)[2] == features
 
-    @test size(rows)[2] == samples 
+    @test size(data.rows)[2] == samples 
 
-    @test size(cols)[2] == features
+    @test size(data.cols)[2] == features
 end

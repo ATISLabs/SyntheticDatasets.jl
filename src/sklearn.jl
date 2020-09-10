@@ -276,7 +276,7 @@ function generate_checkerboard(shape::Tuple{Int, Int},
                                                     shuffle = shuffle,
                                                     random_state = random_state)
 
-    return convert(features, "feature"), convert(rows, "row"), convert(columns, "column")
+    return (X = convert(features, "feature"), rows = convert(rows, "row"), columns = convert(columns, "column"))
 end
 
 """
