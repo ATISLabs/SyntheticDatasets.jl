@@ -398,8 +398,5 @@ function generate_gaussian_quantiles(; mean::Union{Array{<:Number, 1}, Nothing} 
                                                           shuffle = shuffle,
                                                           random_state = random_state)
 
-
-
       return convert(features, labels)
-
 end
