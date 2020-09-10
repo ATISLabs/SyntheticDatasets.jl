@@ -30,15 +30,19 @@ function Base.show(io::IO, method::MethodDescriber)
     method.problem_type !== nothing && println("problem type: " * string(method.problem_type))
 end
 
-MethodsDescriber(args...) = MethodDescriber[args...]
+mutable struct MethodDescriberSet
+    describers::Array{MethodDescriber, 1}
+end
 
-function Base.show(io::IO, methods::Array{MethodDescriber})
-    for method in methods
+MethodDescriberSet(args...) = MethodDescriberSet([args...])
+
+function Base.show(io::IO, methods::MethodDescriberSet)
+    for method in methods.describers
         println(method)
     end
 end
 
-_methods = MethodsDescriber(
+_methods = MethodDescriberSet(
     MethodDescriber(
         "Generate_blobs",
         n_features = :Dynamic,
