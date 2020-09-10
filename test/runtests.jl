@@ -47,9 +47,6 @@ using Test
     @test size(data)[1] == samples
     @test size(data)[2] == features + 1
 
-    @test size(data)[1] == samples
-    @test size(data)[2] == features + 1
-
     data = SyntheticDatasets.generate_friedman1(n_samples = samples,
                                                     n_features = features)
 
