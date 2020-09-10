@@ -10,6 +10,9 @@ PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 
 [compat]
+Conda = "1.4"
+PyCall = "1.91"
+DataFrames = "0.21"
 julia = "1"
 
 [extras]
