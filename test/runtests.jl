@@ -40,15 +40,15 @@ using Test
     @test size(data)[1] == samples
     @test size(data)[2] == features + 1
 
-    data = SyntheticDatasets.generate_classification(n_samples = samples,
-                                                    n_features = features,
-                                                    n_classes = 1)
+    data = SyntheticDatasets.generate_classification(   n_samples = samples,
+                                                        n_features = features,
+                                                        n_classes = 1)
 
     @test size(data)[1] == samples
     @test size(data)[2] == features + 1
 
     data = SyntheticDatasets.generate_friedman1(n_samples = samples,
-                                                    n_features = features)
+                                                n_features = features)
 
     @test size(data)[1] == samples
     @test size(data)[2] == features + 1
@@ -63,11 +63,11 @@ using Test
     @test size(data)[1] == samples
     @test size(data)[2] == 5
 
-    data = SyntheticDatasets.generate_low_rank_matrix(n_samples = samples,
-                                                    n_features = features,
-                                                    effective_rank = 10,
-                                                    tail_strength = 0.5,
-                                                    random_state = 5)
+    data = SyntheticDatasets.generate_low_rank_matrix(  n_samples = samples,
+                                                        n_features = features,
+                                                        effective_rank = 10,
+                                                        tail_strength = 0.5,
+                                                        random_state = 5)
 
     @test size(data)[1] == samples
     @test size(data)[2] == features
@@ -79,9 +79,25 @@ using Test
     @test size(data)[1] == samples
     @test size(data)[2] == 4
 
-    data = SyntheticDatasets.generate_hastie_10_2(n_samples = samples,
-                                                random_state = 5)
+    data = SyntheticDatasets.generate_hastie_10_2(  n_samples = samples,
+                                                    random_state = 5)
 
     @test size(data)[1] == samples
     @test size(data)[2] == 11
+
+    data = SyntheticDatasets.generate_gaussian_quantiles(   n_samples = samples,
+                                                            n_features = features,
+                                                            random_state = 5)
+
+    @test size(data)[1] == samples
+    @test size(data)[2] == features + 1
+end
+
+@testset "Matlab Generators" begin
+    samples = 20000
+
+    data = SyntheticDatasets.generate_twospirals(n_samples = samples,
+                                                 noise = 2.2)
+
+    @test size(data)[1] == samples
 end

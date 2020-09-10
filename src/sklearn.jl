@@ -379,3 +379,42 @@ function generate_hastie_10_2(;  n_samples::Int = 12000,
 
    return convert(features, labels)
 end
+
+"""
+function generate_gaussian_quantiles(; mean::Array{<:Union{Number, Nothing}, 1} = [nothing],
+                                       cov::Float64 = 1,
+                                       n_samples::Int = 100,
+                                       n_features::Int = 2,
+                                       n_classes::Int = 3,
+                                       shuffle::Bool = true,
+                                       random_state::Union{Int, Nothing} = nothing)
+
+Generate isotropic Gaussian and label samples by quantile.
+#Arguments
+- `mean::Array{<:Union{Number, Nothing}, 1} = [nothing]`: The mean of the multi-dimensional normal distribution. If None then use the origin (0, 0, …).
+- `cov::Float64 = 1`: The covariance matrix will be this value times the unit matrix.
+- `n_samples::Int = 100`: The total number of points equally divided among classes.
+- `n_features::Int = 2`: The number of features for each sample.
+- `n_classes::Int = 3`: The number of classes.
+- `shuffle::Bool = true`: Shuffle the samples.
+- `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls. See Glossary.
+Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_gaussian_quantiles.html)
+"""
+function generate_gaussian_quantiles(; mean::Union{Array{<:Number, 1}, Nothing} = nothing,
+                                       cov::Float64 = 1.0,
+                                       n_samples::Int = 100,
+                                       n_features::Int = 2,
+                                       n_classes::Int = 3,
+                                       shuffle::Bool = true,
+                                       random_state::Union{Int, Nothing} = nothing)
+
+    (features, labels) = datasets.make_gaussian_quantiles(mean = mean,
+                                                          cov = cov,
+                                                          n_samples = n_samples,
+                                                          n_features = n_features,
+                                                          n_classes = n_classes,
+                                                          shuffle = shuffle,
+                                                          random_state = random_state)
+
+    return convert(features, labels)
+end
