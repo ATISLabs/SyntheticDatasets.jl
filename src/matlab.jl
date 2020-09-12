@@ -31,3 +31,37 @@ function generate_twospirals(; n_samples::Int = 2000,
 
    return convert(features, labels);
 end
+
+function generate_outlier(;n_samples::Int = 600,
+                           r::Int = 20,
+                           dist::Int = 30,
+                           outliers::Float64 = 0.04,
+                           noise::Float64 = 5.0)
+
+   # OK
+   n1 = round(Int, (n_samples * (0.5 - outliers)) )
+   n2 = n1
+   n3 = round(Int, n_samples * outliers)
+   n4 = n_samples - n1 - n2 - n3
+
+   phi1 = rand(n1, 1) * pi
+   r1 = sqrt.(rand(n1, 1)) * r
+   p1 = [ -dist .+ (r1 .* sin.(phi1)) r1 .* cos.(phi1)]
+   l1 = zeros(Int, n1)
+
+   phi2 = rand(n2, 1) * pi
+   r2 = sqrt.(rand(n2, 1)) * r
+   p2 = [ dist .- r2.*sin.(phi2) r2.*cos.(phi2)]
+   l2 = 3 * ones(Int, n2)
+
+   p3 = [ rand(n3, 1) * noise   dist .+ rand(n3, 1) * noise ]
+   l3 = 2 * ones(Int, n3)
+
+   p4 = [ rand(n4, 1) * noise -dist .+ rand(n4, 1) * noise ]
+   l4 = ones(Int, n4)
+
+   features = [p1; p2; p3; p4]
+   labels = [l1; l2; l3; l4]
+
+   return convert(features, labels)
+end
