@@ -31,3 +31,30 @@ function generate_twospirals(; n_samples::Int = 2000,
 
    return convert(features, labels);
 end
+
+"""
+
+"""
+
+function generate_halfkernel(; n_samples::Int = 1000,
+                            minx::Int = -20,
+                            r1::Int = 20,
+                            r2::Int = 35,
+                            noise::Float64 = 4.0,
+                            ratio::Float64 = 0.6)
+   
+   phi1 = rand(n_samples/2, 1) * π
+   inner = [minx + r1 * sin(phi1) - .5 * noise + noise * rand(n_samples/2, 1) r1 * ratio * cos(phi1) - .5 * noise + noise * rand(n_samples/2, 1)]
+   l1 = ones(Int, n_samples/2)
+
+   phi2 = rand(N/2,1) * pi;
+   outer = [minx + r2 * sin(phi2) - .5 * noise  + noise * rand(n_samples/2,1) r2 * ratio * cos(phi2) - .5 * noise  + noise * rand(n_samples/2,1)]
+   l2 = zeros(Int, n_samples/2)
+
+
+   features = [inner; outer]
+   labels = [l1; l2]
+
+   return convert(features, labels)
+
+end
