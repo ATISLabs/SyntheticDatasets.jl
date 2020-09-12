@@ -1,33 +1,31 @@
 mutable struct MethodDescriber
     name::String
-    n_features::Union{Symbol, Int, Nothing}
-    n_samples::Union{Symbol, Int, Nothing}
+    description::Union{String, Nothing}
     problem_type::Union{Symbol, Nothing}
-
+    f::Union{Function, Nothing}
+        
     MethodDescriber() = new()
     
 end
 
-function MethodDescriber(   method_name::String;
-                            n_features = nothing,
-                            n_samples = nothing,
-                            problem_type = nothing)
+function MethodDescriber(   name::String;
+                            description = nothing,
+                            problem_type = nothing,
+                            f = nothing)
     
     method = MethodDescriber()
 
-    method.name = method_name
-    method.n_features = n_features
-    method.n_samples = n_samples
+    method.name = name
+    method.description = description
     method.problem_type = problem_type
-
+    method.f = f
     return method
 end 
 
 function Base.show(io::IO, method::MethodDescriber)
-    println("# $(method.name)")
-    method.n_features !== nothing && println("number of features: " * string(method.n_features))
-    method.n_samples !== nothing && println("amount of samples: " * string(method.n_samples))
-    method.problem_type !== nothing && println("problem type: " * string(method.problem_type))
+    println(io, "$(method.name)")
+    method.problem_type !== nothing && println(io, "problem type: " * string(method.problem_type))
+    method.description !== nothing && println(io, "Description:\n" * method.description) 
 end
 
 mutable struct MethodDescriberSet
@@ -63,21 +61,40 @@ methodsFilter(parameters::Union{Pair, Array{Pair}}) = methodsFilter(METHODS, par
 
 function Base.show(io::IO, methods::MethodDescriberSet)
     for method in methods.describers
-        println(method)
+        print(io, method)
     end
 end
 
 const METHODS = MethodDescriberSet(
     MethodDescriber(
-        "Generate_blobs",
-        n_features = :Dynamic,
-        n_samples = :Dynamic,
-        problem_type = :Classification),
+        "generate_blobs",
+        problem_type = :Classification,
+        description = """
+        Generate isotropic Gaussian blobs for clustering. Sklearn interface to make_blobs.
+        """,
+        f = generate_blobs,),
     MethodDescriber(
-        "Generate_s_curve",
-        n_features = 2,
-        n_samples = :Dynamic,
-        problem_type = :Regression),
+        "generate_moons",
+        problem_type = :Classification,
+        description = """
+        Generate isotropic Gaussian blobs for clustering. Sklearn interface to make_blobs.
+        """,
+        f = generate_moons,),
+    MethodDescriber(
+        "make_s_curve",
+        problem_type = :Regression,
+        description = """
+        Generate an S curve dataset. Sklearn interface to make_s_curve.
+        """,
+        f = generate_s_curve,),
+    MethodDescriber(
+        "generate_regression",
+        problem_type = :Regression,
+        description = """
+        Generate a random regression problem. Sklearn interface to make_regression.
+        """,
+        f = generate_regression,)
+  
 )
 
 methods() = println(METHODS)
