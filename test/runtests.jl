@@ -92,17 +92,16 @@ using Test
     @test size(data)[1] == samples
     @test size(data)[2] == features + 1
 
-    @test_logs (:warn, "length of mean must be equal to n_features.") SyntheticDatasets.generate_gaussian_quantiles(
-                                                        	                                    n_samples = 300,
-                                                                                                n_features = 4,
-                                                                                                random_state = 5,
-                                                                                                mean = [1, 2, 3])
-    @test_logs (:warn, "length of mean must be equal to n_features.") SyntheticDatasets.generate_gaussian_quantiles(
-                                                        	                                    n_samples = 300,
-                                                                                                n_features = 5,
-                                                                                                random_state = 5,
-                                                                                                mean = [1, 2, 3])
+    let err = nothing
+        try
+            error(SyntheticDatasets.generate_gaussian_quantiles(n_samples = 300, n_features = 4, random_state = 5, mean = [1, 2, 3]))
+        catch err
+        end
 
+        @test sprint(showerror, err) == "\"length of mean must be equal to n_features.\""
+
+    end
+    
 end
 
 @testset "Matlab Generators" begin
