@@ -97,6 +97,11 @@ using Test
                                                                                                 n_features = 4,
                                                                                                 random_state = 5,
                                                                                                 mean = [1, 2, 3])
+    @test_logs (:warn, "length of mean must be equal to n_features.") SyntheticDatasets.generate_gaussian_quantiles(
+                                                        	                                    n_samples = 300,
+                                                                                                n_features = 5,
+                                                                                                random_state = 5,
+                                                                                                mean = [1, 2, 3])
 
 end
 
