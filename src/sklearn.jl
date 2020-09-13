@@ -391,7 +391,7 @@ function generate_gaussian_quantiles(; mean::Array{<:Union{Number, Nothing}, 1} 
 
 Generate isotropic Gaussian and label samples by quantile.
 #Arguments
-- `mean::Array{<:Union{Number, Nothing}, 1} = [nothing]`: The mean of the multi-dimensional normal distribution. If None then use the origin (0, 0, …).
+- `mean::Union{Array{<:Number, 1}, Nothing} = nothing`: The mean of the multi-dimensional normal distribution. If None then use the origin (0, 0, …).
 - `cov::Float64 = 1`: The covariance matrix will be this value times the unit matrix.
 - `n_samples::Int = 100`: The total number of points equally divided among classes.
 - `n_features::Int = 2`: The number of features for each sample.
@@ -407,6 +407,8 @@ function generate_gaussian_quantiles(; mean::Union{Array{<:Number, 1}, Nothing} 
                                        n_classes::Int = 3,
                                        shuffle::Bool = true,
                                        random_state::Union{Int, Nothing} = nothing)
+
+    typeof(mean) != Nothing && length(mean) != n_features && throw("length of mean must be equal to n_features.")
 
     (features, labels) = datasets.make_gaussian_quantiles(mean = mean,
                                                           cov = cov,
