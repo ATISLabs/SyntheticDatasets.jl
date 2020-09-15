@@ -71,5 +71,4 @@ function generate_halfkernel(; n_samples::Int = 1000,
    labels = [l1; l2]
 
    return convert(features, labels)
-
 end
