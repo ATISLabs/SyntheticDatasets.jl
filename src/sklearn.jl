@@ -408,7 +408,7 @@ function generate_gaussian_quantiles(; mean::Union{Array{<:Number, 1}, Nothing} 
                                        shuffle::Bool = true,
                                        random_state::Union{Int, Nothing} = nothing)
 
-    typeof(mean) != Nothing && length(mean) != n_features && throw("length of mean must be equal to n_features.")
+    typeof(mean) != Nothing && length(mean) != n_features && throw(DimensionMismatch("length of mean must be equal to n_features."))
 
     (features, labels) = datasets.make_gaussian_quantiles(mean = mean,
                                                           cov = cov,
