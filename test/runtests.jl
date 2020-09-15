@@ -93,7 +93,6 @@ using Test
     @test size(data)[2] == features + 1
 
     @test_throws DimensionMismatch SyntheticDatasets.generate_gaussian_quantiles(n_samples = 300, n_features = 4, random_state = 5, mean = [1, 2, 3])
-
 end
 
 @testset "Matlab Generators" begin
