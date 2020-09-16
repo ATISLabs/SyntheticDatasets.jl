@@ -52,6 +52,7 @@ of that project*. It is licensed under [MIT](LICENSE).
 Dataset              | Title                                                                   | Reference
 ---------------------|-------------------------------------------------------------------------|--------------------------------------------------
 generate_twospirals  | Generate two spirals dataset.                                           | [link](https://la.mathworks.com/matlabcentral/fileexchange/41459-6-functions-for-generating-artificial-datasets)
+generate_halfkernel  | Generate two half kernel dataset.                                       | [link](https://la.mathworks.com/matlabcentral/fileexchange/41459-6-functions-for-generating-artificial-datasets)
 
 [travis-img]: https://travis-ci.com/ATISLabs/SyntheticDatasets.jl.svg?branch=master
 [travis-url]: https://travis-ci.com/ATISLabs/SyntheticDatasets.jl
