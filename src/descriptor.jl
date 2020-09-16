@@ -59,6 +59,8 @@ end
 
 methodsFilter(parameters::Union{Pair, Array{Pair}}) = methodsFilter(METHODS, parameters)
 
+Base.getindex(methods::MethodDescriberSet, index::Int) = methods.describers[index]
+
 function Base.show(io::IO, methods::MethodDescriberSet)
     for method in methods.describers
         print(io, method)
@@ -97,4 +99,4 @@ const METHODS = MethodDescriberSet(
   
 )
 
-methods() = println(METHODS)
+methods() = METHODS
