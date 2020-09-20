@@ -79,7 +79,7 @@ end
                                  dist::Int = 30,
                                  outliers::Float64 = 0.04,
                                  noise::Float64 = 5.0)
-Generates two half ellipses, one inside the other
+Generates outlier dataset.
 # Arguments
 - `n_samples::600 = 1000`: The total number of points generated.
 - `r::Int = 20`: Radius of lateral blobs.
