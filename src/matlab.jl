@@ -73,13 +73,26 @@ function generate_halfkernel(; n_samples::Int = 1000,
    return convert(features, labels)
 end
 
+"""
+      generate_outlier(;n_samples::Int = 600,
+                                 r::Int = 20,
+                                 dist::Int = 30,
+                                 outliers::Float64 = 0.04,
+                                 noise::Float64 = 5.0)
+Generates two half ellipses, one inside the other
+# Arguments
+- `n_samples::600 = 1000`: The total number of points generated.
+- `r::Int = 20`: Radius of lateral blobs.
+- `dist::Int = 30`: Determine the distance between the labels.
+- `noise::Float64 = 5.0`: Determines the noise in the dataset.
+Reference: [link](https://la.mathworks.com/matlabcentral/fileexchange/41459-6-functions-for-generating-artificial-datasets)
+"""
 function generate_outlier(;n_samples::Int = 600,
                            r::Int = 20,
                            dist::Int = 30,
                            outliers::Float64 = 0.04,
                            noise::Float64 = 5.0)
 
-   # OK
    n1 = round(Int, (n_samples * (0.5 - outliers)) )
    n2 = n1
    n3 = round(Int, n_samples * outliers)
