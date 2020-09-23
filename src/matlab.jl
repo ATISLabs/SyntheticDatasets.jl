@@ -1,5 +1,5 @@
 """
-    generate_twospirals(;    n_samples::Int = 2000,
+    make_twospirals(;    n_samples::Int = 2000,
                              start_degrees::Int = 90,
                              total_degrees::Int = 570,
                              noise::Float64 = 0.2
@@ -11,7 +11,7 @@ Generate two spirals dataset. Return a Nx3 matrix, where each line contains the 
 - `noise::Float64 = 0.2`: Determines the noise in the dataset.
 Reference: [link](https://la.mathworks.com/matlabcentral/fileexchange/41459-6-functions-for-generating-artificial-datasets)
 """
-function generate_twospirals(; n_samples::Int = 2000,
+function make_twospirals(; n_samples::Int = 2000,
                                start_degrees::Int = 90,
                                total_degrees::Int = 570,
                                noise::Float64 = 0.2)
@@ -33,7 +33,7 @@ function generate_twospirals(; n_samples::Int = 2000,
 end
 
 """
-      generate_halfkernel(; n_samples::Int = 1000,
+      make_halfkernel(; n_samples::Int = 1000,
                                minx::Int = -20,
                                r1::Int = 20,
                                r2::Int = 35,
@@ -49,7 +49,7 @@ Generates two half ellipses, one inside the other
 - `ratio::Float64 = 0.6)`:
 Reference: [link](https://la.mathworks.com/matlabcentral/fileexchange/41459-6-functions-for-generating-artificial-datasets)
 """
-function generate_halfkernel(; n_samples::Int = 1000,
+function make_halfkernel(; n_samples::Int = 1000,
                                minx::Int = -20,
                                r1::Int = 20,
                                r2::Int = 35,
@@ -74,7 +74,7 @@ function generate_halfkernel(; n_samples::Int = 1000,
 end
 
 """
-      generate_outlier(;n_samples::Int = 600,
+      make_outlier(;n_samples::Int = 600,
                                  r::Int = 20,
                                  dist::Int = 30,
                                  outliers::Float64 = 0.04,
@@ -87,7 +87,7 @@ Generates outlier dataset.
 - `noise::Float64 = 5.0`: Determines the noise in the dataset.
 Reference: [link](https://la.mathworks.com/matlabcentral/fileexchange/41459-6-functions-for-generating-artificial-datasets)
 """
-function generate_outlier(;n_samples::Int = 600,
+function make_outlier(;n_samples::Int = 600,
                            r::Int = 20,
                            dist::Int = 30,
                            outliers::Float64 = 0.04,

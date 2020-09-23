@@ -101,14 +101,14 @@ end
 @testset "Matlab Generators" begin
     samples = 20000
 
-    data = SyntheticDatasets.generate_twospirals(n_samples = samples,
+    data = SyntheticDatasets.make_twospirals(n_samples = samples,
                                                  noise = 2.2)
     @test size(data)[1] == samples
 
-    data = SyntheticDatasets.generate_halfkernel(n_samples = samples)
+    data = SyntheticDatasets.make_halfkernel(n_samples = samples)
     @test size(data)[1] == samples
 
-    data = SyntheticDatasets.generate_outlier(n_samples = samples)
+    data = SyntheticDatasets.make_outlier(n_samples = samples)
     @test size(data)[1] == samples
     @test size(data)[2] == 3
 end
