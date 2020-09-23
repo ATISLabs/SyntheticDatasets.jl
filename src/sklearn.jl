@@ -1,8 +1,8 @@
 """
-    generate_moons(;    n_samples::Union{Tuple{Int, Int}, Int} = 100, 
-                        shuffle = true, 
-                        noise = nothing, 
-                        random_state = nothing)::DataFrame
+    make_moons(;    n_samples::Union{Tuple{Int, Int}, Int} = 100, 
+                    shuffle = true, 
+                    noise = nothing, 
+                    random_state = nothing)::DataFrame
 Make two interleaving half circles. Sklearn interface to make_moons. 
 # Arguments
 - `n_samples::Union{Tuple{Int, Int}, Int} = 100`: If int, the total number of points generated. If two-element tuple, number of points in each of two moons.
@@ -11,7 +11,7 @@ Make two interleaving half circles. Sklearn interface to make_moons.
 - `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset shuffling and noise.
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_moons.html)
 """
-function generate_moons(;n_samples::Union{Tuple{Int, Int}, Int} = 100, 
+function make_moons(;   n_samples::Union{Tuple{Int, Int}, Int} = 100, 
                         shuffle::Bool = true, 
                         noise::Union{Nothing, Float64} = nothing, 
                         random_state::Union{Int, Nothing} = nothing)::DataFrame
@@ -25,13 +25,13 @@ function generate_moons(;n_samples::Union{Tuple{Int, Int}, Int} = 100,
 end
 
 """
-    generate_blobs(;    n_samples::Union{Int, Array{Int, 1}} = 100, 
-                        n_features::Int = 2,
-                        centers::Union{Int, Union{Nothing, Array{Float64, 2}}} = nothing,
-                        cluster_std::Union{Float64, Array{Float64, 1}} = 1.0,
-                        center_box = (-10.0, 10.0),
-                        shuffle::Bool = true, 
-                        random_state::Union{Int, Nothing} = nothing)::DataFrame
+    make_blobs(;    n_samples::Union{Int, Array{Int, 1}} = 100, 
+                    n_features::Int = 2,
+                    centers::Union{Int, Union{Nothing, Array{Float64, 2}}} = nothing,
+                    cluster_std::Union{Float64, Array{Float64, 1}} = 1.0,
+                    center_box = (-10.0, 10.0),
+                    shuffle::Bool = true, 
+                    random_state::Union{Int, Nothing} = nothing)::DataFrame
 Generate isotropic Gaussian blobs for clustering. Sklearn interface to make_blobs. 
 # Arguments
 - `n_samples = 100`: If int, it is the total number of points equally divided among clusters. If array-like, each element of the sequence indicates the number of samples per cluster. 
@@ -43,7 +43,7 @@ Generate isotropic Gaussian blobs for clustering. Sklearn interface to make_blob
 - `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset shuffling and noise.
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html)
 """
-function generate_blobs(;n_samples::Union{Int, Array{Int, 1}} = 100, 
+function make_blobs(;   n_samples::Union{Int, Array{Int, 1}} = 100, 
                         n_features::Int = 2,
                         centers::Union{Int, Union{Nothing, Array{Float64, 2}}} = nothing,
                         cluster_std::Union{Float64, Array{Float64, 1}} = 1.0,
@@ -64,9 +64,9 @@ function generate_blobs(;n_samples::Union{Int, Array{Int, 1}} = 100,
 end
 
 """
-    generate_s_curve(;  n_samples::Int = 100, 
-                        noise = nothing, 
-                        random_state = nothing)::DataFrame
+    make_s_curve(;  n_samples::Int = 100, 
+                    noise = nothing, 
+                    random_state = nothing)::DataFrame
 Generate an S curve dataset. Sklearn interface to make_s_curve. 
 # Arguments
 - `n_samples::Int = 100`: The number of sample points on the S curve.
@@ -74,9 +74,9 @@ Generate an S curve dataset. Sklearn interface to make_s_curve.
 - `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls.
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_s_curve.html)
 """
-function generate_s_curve(; n_samples::Int = 100,
-                            noise::Float64 = 0.0, 
-                            random_state::Union{Int, Nothing} = nothing)::DataFrame
+function make_s_curve(; n_samples::Int = 100,
+                        noise::Float64 = 0.0, 
+                        random_state::Union{Int, Nothing} = nothing)::DataFrame
         
     (features, labels) = datasets.make_s_curve( n_samples = n_samples,
                                                 noise = noise, 
@@ -86,11 +86,11 @@ function generate_s_curve(; n_samples::Int = 100,
 end
 
 """
-    function generate_circles(; n_samples::Int = 100,
-                                shuffle::Bool = true,
-                                noise::Float64 = 0.0, 
-                                random_state::Union{Int, Nothing} = nothing,
-                                factor::Float64 = 0.8)::DataFrame
+    function make_circles(; n_samples::Int = 100,
+                            shuffle::Bool = true,
+                            noise::Float64 = 0.0, 
+                            random_state::Union{Int, Nothing} = nothing,
+                            factor::Float64 = 0.8)::DataFrame
 Make a large circle containing a smaller circle in 2d. Sklearn interface to make_circles.
 # Arguments
 - `n_samples::Union{Int, Tuple{Int, Int}} = 100`: If int, it is the total number of points generated. For odd numbers, the inner circle will have one point more than the outer circle. If two-element tuple, number of points in outer circle and inner circle.
@@ -101,11 +101,11 @@ Make a large circle containing a smaller circle in 2d. Sklearn interface to make
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_circles.html)
 
 """
-function generate_circles(; n_samples::Union{Int, Tuple{Int, Int}} = 100,
-                            shuffle::Bool = true,
-                            noise::Union{Nothing, Float64} = nothing, 
-                            random_state::Union{Int, Nothing} = nothing,
-                            factor::Float64 = 0.8)::DataFrame
+function make_circles(; n_samples::Union{Int, Tuple{Int, Int}} = 100,
+                        shuffle::Bool = true,
+                        noise::Union{Nothing, Float64} = nothing, 
+                        random_state::Union{Int, Nothing} = nothing,
+                        factor::Float64 = 0.8)::DataFrame
 
     (features, labels) = datasets.make_circles( n_samples = n_samples,
                             shuffle = shuffle, 
@@ -117,17 +117,17 @@ function generate_circles(; n_samples::Union{Int, Tuple{Int, Int}} = 100,
 end
 
 """
-    generate_regression(;   n_samples::Int = 100,
-                            n_features::Int = 100,
-                            n_informative::Int = 10,
-                            n_targets::Int = 1,
-                            bias::Float64 = 0.0,
-                            effective_rank::Union{Int, Nothing} = nothing, 
-                            tail_strength::Float64 = 0.5, 
-                            noise::Float64 = 0.0, 
-                            shuffle::Bool = true, 
-                            coef::Bool = false, 
-                            random_state::Union{Int, Nothing}= nothing)
+    make_regression(;   n_samples::Int = 100,
+                        n_features::Int = 100,
+                        n_informative::Int = 10,
+                        n_targets::Int = 1,
+                        bias::Float64 = 0.0,
+                        effective_rank::Union{Int, Nothing} = nothing, 
+                        tail_strength::Float64 = 0.5, 
+                        noise::Float64 = 0.0, 
+                        shuffle::Bool = true, 
+                        coef::Bool = false, 
+                        random_state::Union{Int, Nothing}= nothing)
 Generate a random regression problem. Sklearn interface to make_regression.
 # Arguments
 - `n_samples::Int = 100`: The number of samples.
@@ -143,17 +143,17 @@ Generate a random regression problem. Sklearn interface to make_regression.
 - `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset shuffling and noise.
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html)
 """
-function generate_regression(;  n_samples::Int = 100,
-                                n_features::Int = 100,
-                                n_informative::Int = 10,
-                                n_targets::Int = 1,
-                                bias::Float64 = 0.0,
-                                effective_rank::Union{Int, Nothing} = nothing,
-                                tail_strength::Float64 = 0.5,
-                                noise::Float64 = 0.0,
-                                shuffle::Bool = true,
-                                coef::Bool = false,
-                                random_state::Union{Int, Nothing}= nothing)
+function make_regression(;  n_samples::Int = 100,
+                            n_features::Int = 100,
+                            n_informative::Int = 10,
+                            n_targets::Int = 1,
+                            bias::Float64 = 0.0,
+                            effective_rank::Union{Int, Nothing} = nothing,
+                            tail_strength::Float64 = 0.5,
+                            noise::Float64 = 0.0,
+                            shuffle::Bool = true,
+                            coef::Bool = false,
+                            random_state::Union{Int, Nothing}= nothing)
 
     (features, labels) = datasets.make_regression(  n_samples = n_samples,
                                                     n_features = n_features,
@@ -171,7 +171,7 @@ function generate_regression(;  n_samples::Int = 100,
 end
 
 """
-function generate_classification(;  n_samples::Int = 100,
+    function make_classification(;  n_samples::Int = 100,
                                     n_features::Int = 20,
                                     n_informative::Int = 2,
                                     n_redundant::Int = 2,
@@ -205,21 +205,21 @@ Generate a random n-class classification problem. Sklearn interface to make_clas
 - `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls. See Glossary.
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html)
 """
-function generate_classification(;  n_samples::Int = 100,
-                                    n_features::Int = 20,
-                                    n_informative::Int = 2,
-                                    n_redundant::Int = 2,
-                                    n_repeated::Int = 0,
-                                    n_classes::Int = 2,
-                                    n_clusters_per_class::Int = 2,
-                                    weights::Union{Nothing, Array{Float64,1}} = nothing,
-                                    flip_y::Float64 = 0.01,
-                                    class_sep::Float64 = 1.0,
-                                    hypercube::Bool = true, 
-                                    shift::Union{Nothing, Float64, Array{Float64,1}} = 0.0,
-                                    scale::Union{Nothing, Float64, Array{Float64,1}} = 1.0, 
-                                    shuffle::Bool = true, 
-                                    random_state::Union{Int, Nothing} = nothing)
+function make_classification(;  n_samples::Int = 100,
+                                n_features::Int = 20,
+                                n_informative::Int = 2,
+                                n_redundant::Int = 2,
+                                n_repeated::Int = 0,
+                                n_classes::Int = 2,
+                                n_clusters_per_class::Int = 2,
+                                weights::Union{Nothing, Array{Float64,1}} = nothing,
+                                flip_y::Float64 = 0.01,
+                                class_sep::Float64 = 1.0,
+                                hypercube::Bool = true, 
+                                shift::Union{Nothing, Float64, Array{Float64,1}} = 0.0,
+                                scale::Union{Nothing, Float64, Array{Float64,1}} = 1.0, 
+                                shuffle::Bool = true, 
+                                random_state::Union{Int, Nothing} = nothing)
 
     (features, labels) = datasets.make_classification(  n_samples = n_samples,
                                                         n_features = n_features,
@@ -241,10 +241,10 @@ function generate_classification(;  n_samples::Int = 100,
 end
 
 """
-    function generate_friedman1(;   n_samples::Int = 100,
-                                    n_features::Int = 10,
-                                    noise::Float64 = 0.0, 
-                                    random_state::Union{Int, Nothing} = nothing)::DataFrame
+    function make_friedman1(;   n_samples::Int = 100,
+                                n_features::Int = 10,
+                                noise::Float64 = 0.0, 
+                                random_state::Union{Int, Nothing} = nothing)::DataFrame
 Generate the “Friedman #1” regression problem. Sklearn interface to make_regression.
 #Arguments
 - `n_samples::Int = 100`: The number of samples.
@@ -253,10 +253,10 @@ Generate the “Friedman #1” regression problem. Sklearn interface to make_reg
 - `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset noise. Pass an int for reproducible output across multiple function calls.
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman1.html)
 """
-function generate_friedman1(;   n_samples::Int = 100,
-                                n_features::Int = 10,
-                                noise::Float64 = 0.0, 
-                                random_state::Union{Int, Nothing} = nothing)::DataFrame
+function make_friedman1(;   n_samples::Int = 100,
+                            n_features::Int = 10,
+                            noise::Float64 = 0.0, 
+                            random_state::Union{Int, Nothing} = nothing)::DataFrame
 
     (features, labels) = datasets.make_friedman1(   n_samples = n_samples,
                                                     n_features = n_features,
@@ -267,9 +267,9 @@ function generate_friedman1(;   n_samples::Int = 100,
 end
 
 """
-    function generate_friedman2(;   n_samples::Int = 100,
-                                    noise::Float64 = 0.0, 
-                                    random_state::Union{Int, Nothing} = nothing)::DataFrame
+    function make_friedman2(;   n_samples::Int = 100,
+                                noise::Float64 = 0.0, 
+                                random_state::Union{Int, Nothing} = nothing)::DataFrame
 Generate the “Friedman #2” regression problem. Sklearn interface to make_friedman2.
 #Arguments
 - `n_samples::Int = 100`: The number of samples.
@@ -278,9 +278,9 @@ Generate the “Friedman #2” regression problem. Sklearn interface to make_fri
 - `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset noise. Pass an int for reproducible output across multiple function calls.
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman2.html)
 """
-function generate_friedman2(;   n_samples::Int = 100,
-                                noise::Float64 = 0.0, 
-                                random_state::Union{Int, Nothing} = nothing)::DataFrame
+function make_friedman2(;   n_samples::Int = 100,
+                            noise::Float64 = 0.0, 
+                            random_state::Union{Int, Nothing} = nothing)::DataFrame
 
     (features, labels) = datasets.make_friedman2(   n_samples = n_samples,
                                                     noise = noise, 
@@ -290,9 +290,9 @@ function generate_friedman2(;   n_samples::Int = 100,
 end
 
 """
-    function generate_friedman3(;   n_samples::Int = 100,
-                                    noise::Float64 = 0.0, 
-                                    random_state::Union{Int, Nothing} = nothing)::DataFrame
+    function make_friedman3(;   n_samples::Int = 100,
+                                noise::Float64 = 0.0, 
+                                random_state::Union{Int, Nothing} = nothing)::DataFrame
 Generate the “Friedman #3” regression problem. Sklearn interface to make_friedman3.
 #Arguments
 - `n_samples::Int = 100`: The number of samples.
@@ -300,9 +300,9 @@ Generate the “Friedman #3” regression problem. Sklearn interface to make_fri
 - `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset noise. Pass an int for reproducible output across multiple function calls.
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman3.html)
 """
-function generate_friedman3(;   n_samples::Int = 100,
-                                noise::Float64 = 0.0, 
-                                random_state::Union{Int, Nothing} = nothing)::DataFrame
+function make_friedman3(;   n_samples::Int = 100,
+                            noise::Float64 = 0.0, 
+                            random_state::Union{Int, Nothing} = nothing)::DataFrame
 
     (features, labels) = datasets.make_friedman3(   n_samples = n_samples,
                                                     noise = noise, 
@@ -312,7 +312,7 @@ function generate_friedman3(;   n_samples::Int = 100,
 end
 
 """
-function generate_low_rank_matrix(; n_samples::Int =100,
+    function make_low_rank_matrix(; n_samples::Int =100,
                                     n_features::Int =100,
                                     effective_rank::Int =10,
                                     tail_strength::Float64 =0.5,
@@ -326,24 +326,24 @@ Generate a mostly low rank matrix with bell-shaped singular values
 - `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls. See Glossary.
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_low_rank_matrix.html)
 """
-function generate_low_rank_matrix(; n_samples::Int = 100,
-                                    n_features::Int = 100,
-                                    effective_rank::Int = 10,
-                                    tail_strength::Float64 = 0.5,
-                                    random_state::Union{Int, Nothing} = nothing)
+function make_low_rank_matrix(; n_samples::Int = 100,
+                                n_features::Int = 100,
+                                effective_rank::Int = 10,
+                                tail_strength::Float64 = 0.5,
+                                random_state::Union{Int, Nothing} = nothing)
 
-    features = datasets.make_low_rank_matrix(n_samples = n_samples,
-                                                       n_features = n_features,
-                                                       effective_rank = effective_rank,
-                                                       tail_strength = tail_strength,
-                                                       random_state = random_state)
+    features = datasets.make_low_rank_matrix(   n_samples = n_samples,
+                                                n_features = n_features,
+                                                effective_rank = effective_rank,
+                                                tail_strength = tail_strength,
+                                                random_state = random_state)
    return features
 end
 
 """
-function generate_swiss_roll(;  n_samples::Int = 100,
-                               noise::Float64 = 0.0,
-                               random_state::Union{Int,Nothing} = nothing)
+function make_swiss_roll(;  n_samples::Int = 100,
+                            noise::Float64 = 0.0,
+                            random_state::Union{Int,Nothing} = nothing)
 Generate a swiss roll dataset.
 #Arguments
 - `n_samples::Int = 100`: The number of samples.
@@ -351,9 +351,9 @@ Generate a swiss roll dataset.
 - `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls. See Glossary.
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_swiss_roll.htmll)
 """
-function generate_swiss_roll(;  n_samples::Int = 100,
-                               noise::Float64 = 0.0,
-                               random_state::Union{Int,Nothing} = nothing)
+function make_swiss_roll(;  n_samples::Int = 100,
+                            noise::Float64 = 0.0,
+                            random_state::Union{Int,Nothing} = nothing)
 
    (features, labels) = datasets.make_swiss_roll(  n_samples = n_samples,
                                                    noise = noise,
@@ -363,31 +363,31 @@ function generate_swiss_roll(;  n_samples::Int = 100,
 end
 
 """
-function generate_hastie_10_2(;  n_samples::Int = 12000,
-                                 random_state::Union{Int,Nothing} = nothing)
+    function make_hastie_10_2(;  n_samples::Int = 12000,
+                                    random_state::Union{Int,Nothing} = nothing)
 Generates data for binary classification used in Hastie et al. 2009, Example 10.2.
 #Arguments
 - `n_samples::Int = 100`: The number of samples..
 - `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls. See Glossary.
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_hastie_10_2.html)
 """
-function generate_hastie_10_2(;  n_samples::Int = 12000,
-                               random_state::Union{Int,Nothing} = nothing)
+function make_hastie_10_2(; n_samples::Int = 12000,
+                            random_state::Union{Int,Nothing} = nothing)
 
    (features, labels) = datasets.make_hastie_10_2(  n_samples = n_samples,
-                                                   random_state = random_state)
+                                                    random_state = random_state)
 
    return convert(features, labels)
 end
 
 """
-function generate_gaussian_quantiles(; mean::Array{<:Union{Number, Nothing}, 1} = [nothing],
-                                       cov::Float64 = 1,
-                                       n_samples::Int = 100,
-                                       n_features::Int = 2,
-                                       n_classes::Int = 3,
-                                       shuffle::Bool = true,
-                                       random_state::Union{Int, Nothing} = nothing)
+    function make_gaussian_quantiles(;  mean::Array{<:Union{Number, Nothing}, 1} = [nothing],
+                                        cov::Float64 = 1,
+                                        n_samples::Int = 100,
+                                        n_features::Int = 2,
+                                        n_classes::Int = 3,
+                                        shuffle::Bool = true,
+                                        random_state::Union{Int, Nothing} = nothing)
 
 Generate isotropic Gaussian and label samples by quantile.
 #Arguments
@@ -400,23 +400,23 @@ Generate isotropic Gaussian and label samples by quantile.
 - `random_state::Union{Int, Nothing} = nothing`: Determines random number generation for dataset creation. Pass an int for reproducible output across multiple function calls. See Glossary.
 Reference: [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_gaussian_quantiles.html)
 """
-function generate_gaussian_quantiles(; mean::Union{Array{<:Number, 1}, Nothing} = nothing,
-                                       cov::Float64 = 1.0,
-                                       n_samples::Int = 100,
-                                       n_features::Int = 2,
-                                       n_classes::Int = 3,
-                                       shuffle::Bool = true,
-                                       random_state::Union{Int, Nothing} = nothing)
+function make_gaussian_quantiles(;  mean::Union{Array{<:Number, 1}, Nothing} = nothing,
+                                    cov::Float64 = 1.0,
+                                    n_samples::Int = 100,
+                                    n_features::Int = 2,
+                                    n_classes::Int = 3,
+                                    shuffle::Bool = true,
+                                    random_state::Union{Int, Nothing} = nothing)
 
     typeof(mean) != Nothing && length(mean) != n_features && throw(DimensionMismatch("length of mean must be equal to n_features."))
 
-    (features, labels) = datasets.make_gaussian_quantiles(mean = mean,
-                                                          cov = cov,
-                                                          n_samples = n_samples,
-                                                          n_features = n_features,
-                                                          n_classes = n_classes,
-                                                          shuffle = shuffle,
-                                                          random_state = random_state)
+    (features, labels) = datasets.make_gaussian_quantiles(  mean = mean,
+                                                            cov = cov,
+                                                            n_samples = n_samples,
+                                                            n_features = n_features,
+                                                            n_classes = n_classes,
+                                                            shuffle = shuffle,
+                                                            random_state = random_state)
 
     return convert(features, labels)
 end
