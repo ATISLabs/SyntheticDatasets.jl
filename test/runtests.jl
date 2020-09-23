@@ -100,10 +100,13 @@ end
 
     data = SyntheticDatasets.generate_twospirals(n_samples = samples,
                                                  noise = 2.2)
-
     @test size(data)[1] == samples
 
     data = SyntheticDatasets.generate_halfkernel(n_samples = samples)
     @test size(data)[1] == samples
+
+    data = SyntheticDatasets.generate_outlier(n_samples = samples)
+    @test size(data)[1] == samples
+    @test size(data)[2] == 3
 
 end
