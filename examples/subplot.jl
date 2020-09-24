@@ -16,7 +16,7 @@ gauss = SyntheticDatasets.make_gaussian_quantiles(  mean = [10,1],
                                                     n_features = 2,
                                                     n_classes = 3, 
                                                     shuffle = true,
-						                            random_state = 2);
+                                                    random_state = 2);
 
 @df gauss scatter(:feature_1, :feature_2, group = :label, title = "Gaussian Quantiles")
 
