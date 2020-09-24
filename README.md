@@ -22,14 +22,14 @@ julia> import Pkg; Pkg.add("SyntheticDatasets")
 Here are a few examples to show the Package capabilities
 ```julia
 blobs = SyntheticDatasets.make_blobs(n_samples = 1000, n_features = 2,
-                                     centers = [-1 1; -0.5 0.5],cluster_std = 0.25,
+                                     centers = [-1 1; -0.5 0.5], cluster_std = 0.25,
                                      center_box = (-2.0, 2.0), shuffle = true,
                                      random_state = nothing);
 
 @df blobs scatter(:feature_1, :feature_2,
                   group = :label, title = "Blobs")
 
-gauss = SyntheticDatasets.make_gaussian_quantiles(mean =[10,1], cov = 2.0,
+gauss = SyntheticDatasets.make_gaussian_quantiles(mean = [10,1], cov = 2.0,
                                                   n_samples = 1000, n_features = 2,
 						  n_classes = 3, shuffle = true,
 						  random_state = 2);
@@ -37,7 +37,7 @@ gauss = SyntheticDatasets.make_gaussian_quantiles(mean =[10,1], cov = 2.0,
 @df gauss scatter(:feature_1, :feature_2,
                   group = :label, title = "Gaussian Quantiles")
 
-spirals = SyntheticDatasets.make_twospirals(n_samples=2000, start_degrees = 90,
+spirals = SyntheticDatasets.make_twospirals(n_samples = 2000, start_degrees = 90,
 					    total_degrees = 570, noise =0.1);
 
 @df spirals scatter(:feature_1, :feature_2,
@@ -50,8 +50,9 @@ kernel = SyntheticDatasets.make_halfkernel(n_samples = 1000, minx = -20,
 @df kernel scatter(:feature_1, :feature_2,
                    group = :label, title = "Half Kernel")
 ```
-
-![Example](https://i.imgur.com/iIM44HA.png#center "Plots generated from the code above")
+<p align="center">
+  <img width="460" height="300" src="https://i.imgur.com/iIM44HA.png">
+</p>
 
 ## Datasets
 
