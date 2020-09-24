@@ -21,7 +21,7 @@ julia> import Pkg; Pkg.add("SyntheticDatasets")
 ## Examples
 A set of pluto notebooks and codes demonstrating the project's current functionality is available in [the examples folder](examples/).
 
-Here are a few examples to show the Package capabilities
+Here are a few examples to show the Package capabilities:
 ```julia
 using StatsPlots, SyntheticDatasets
 
