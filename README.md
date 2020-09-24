@@ -58,7 +58,7 @@ kernel = SyntheticDatasets.make_halfkernel(n_samples = 1000, minx = -20,
 
 ## Datasets
 
-The package has an interface for the dataset generator of the [ScikitLearn](https://scikit-learn.org/stable/modules/classes.html#samples-generator) and in the future it will have its own functions.
+The SyntheticDatasets.jl is a library with functions for generating synthetic artificial datasets. The package has some functions are interfaces to the dataset generator of the [ScikitLearn](https://scikit-learn.org/stable/modules/classes.html#samples-generator).
 
 ### ScikitLearn
 List of package datasets:
