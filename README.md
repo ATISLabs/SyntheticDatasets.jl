@@ -19,7 +19,7 @@ julia> import Pkg; Pkg.add("SyntheticDatasets")
 ```
 
 ## Examples
-A set of pluto notebooks and codes demonstrating the project's current functionality is available in the examples folder.
+A set of pluto notebooks and codes demonstrating the project's current functionality is available in [the examples folder](examples/).
 
 Here are a few examples to show the Package capabilities
 ```julia
@@ -55,7 +55,7 @@ kernel = SyntheticDatasets.make_halfkernel(n_samples = 1000, minx = -20,
                    group = :label, title = "Half Kernel")
 ```
 <p align="center">
-  <img width="460" height="300" src="https://i.imgur.com/iIM44HA.png">
+  <img width="460" height="300" src="https://github.com/ATISLabs/SyntheticDatasets.jl/blob/4b90b37ea57e38c3a7a05f9917912023f8aa5361/examples/subplot.png">
 </p>
 
 ## Datasets
