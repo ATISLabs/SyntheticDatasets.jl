@@ -21,6 +21,8 @@ julia> import Pkg; Pkg.add("SyntheticDatasets")
 ## Examples
 Here are a few examples to show the Package capabilities
 ```julia
+using StatsPlots, SyntheticDatasets
+
 blobs = SyntheticDatasets.make_blobs(n_samples = 1000, n_features = 2,
                                      centers = [-1 1; -0.5 0.5], cluster_std = 0.25,
                                      center_box = (-2.0, 2.0), shuffle = true,
