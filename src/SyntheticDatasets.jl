@@ -31,4 +31,22 @@ function convert(features::Array{T, 2}, labels::Array{D, 1})::DataFrame where {T
     return df
 end
 
+function convert(features::Array{T, 2}, labels::Array{D, 2})::DataFrame where {T <: Number, D <: Number}
+    df = DataFrame()
+
+    for i = 1:size(features)[2]
+        df[!, Symbol("feature_$(i)")] = eltype(features)[]
+    end
+
+    for i = 1:size(labels)[2]
+        df[!, Symbol("label_$(i)")] = eltype(labels)[]
+    end
+    
+    for row in 1:size(features)[1]
+        push!(df, (features[row, :]... , labels[row, :]...))
+    end
+    
+    return df
+end
+
 end # module
