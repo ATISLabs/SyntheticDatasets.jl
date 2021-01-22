@@ -40,6 +40,24 @@ using Test
     @test size(data)[1] == samples
     @test size(data)[2] == features + 1
 
+    data = SyntheticDatasets.make_regression(   n_samples = samples,
+                                                n_features = features,
+                                                n_targets = 2,
+                                                noise = 2.2,
+                                                random_state = 5)
+
+    @test size(data)[1] == samples
+    @test size(data)[2] == features + 2
+
+    data = SyntheticDatasets.make_regression(   n_samples = samples,
+                                                n_features = features,
+                                                n_targets = 3,
+                                                noise = 2.2,
+                                                random_state = 5)
+
+    @test size(data)[1] == samples
+    @test size(data)[2] == features + 3
+
     data = SyntheticDatasets.make_classification(   n_samples = samples,
                                                     n_features = features,
                                                     n_classes = 1)
