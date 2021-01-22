@@ -1,7 +1,7 @@
 name = "SyntheticDatasets"
 uuid = "07315a1d-27cb-4d26-84cb-b2a39a2725fb"
 authors = ["Filipe Braida <filipebraida@gmail.com>"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 Conda = "8f4d0f93-b110-5947-807f-2305c1781a2d"
