@@ -12,6 +12,7 @@ end
 
 include("sklearn.jl")
 include("matlab.jl")
+include("descriptor.jl")
 
 function convert(features::Array{T, 2}, labels::Array{D, 1})::DataFrame where {T <: Number, D <: Number}
     df = DataFrame()
