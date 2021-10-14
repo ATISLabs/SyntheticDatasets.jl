@@ -74,8 +74,8 @@ List of package datasets:
 
 Dataset                 | Title                                                                   | Reference
 ------------------------|-------------------------------------------------------------------------|--------------------------------------------------
-make_blobs              | Generate isotropic Gaussian blobs for clustering.                       | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_moons.html)
-make_moons              | Make two interleaving half circles                                      | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html)
+make_blobs              | Generate isotropic Gaussian blobs for clustering.                       | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html)
+make_moons              | Make two interleaving half circles                                      | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_moons.html)
 make_s_curve            | Generate an S curve dataset.                                            | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_s_curve.html)
 make_regression         | Generate a random regression problem.                                   | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html)
 make_classification     | Generate a random n-class classification problem.                       | [link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html)
